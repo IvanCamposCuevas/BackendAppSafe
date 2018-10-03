@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackSafe.Servicio", "BackSafe.Servicio\BackSafe.Servicio.csproj", "{47AF44E1-9197-4455-A187-69CF393039E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackSafe.Negocio", "BackSafe.Negocio\BackSafe.Negocio.csproj", "{FF7446FC-24BA-4A75-ABD3-274BE9374B61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackSafe.AccesoDatos", "BackSafe.AccesoDatos\BackSafe.AccesoDatos.csproj", "{35CC4387-B179-4E58-B72D-F6D614C5D4CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackSafe.Presentacion", "BackSafe.Presentacion\BackSafe.Presentacion.csproj", "{7500135B-319D-49EC-9BEF-D8379A7ED517}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,15 @@ Global
 		{35CC4387-B179-4E58-B72D-F6D614C5D4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35CC4387-B179-4E58-B72D-F6D614C5D4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35CC4387-B179-4E58-B72D-F6D614C5D4CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7500135B-319D-49EC-9BEF-D8379A7ED517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7500135B-319D-49EC-9BEF-D8379A7ED517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7500135B-319D-49EC-9BEF-D8379A7ED517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7500135B-319D-49EC-9BEF-D8379A7ED517}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCFDB166-15BE-4A3D-8AA3-15A01A8727B0}
 	EndGlobalSection
 EndGlobal
