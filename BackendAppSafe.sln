@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackSafe.Negocio", "BackSaf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackSafe.AccesoDatos", "BackSafe.AccesoDatos\BackSafe.AccesoDatos.csproj", "{35CC4387-B179-4E58-B72D-F6D614C5D4CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackSafe.Presentacion", "BackSafe.Presentacion\BackSafe.Presentacion.csproj", "{7500135B-319D-49EC-9BEF-D8379A7ED517}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{35CC4387-B179-4E58-B72D-F6D614C5D4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35CC4387-B179-4E58-B72D-F6D614C5D4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35CC4387-B179-4E58-B72D-F6D614C5D4CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7500135B-319D-49EC-9BEF-D8379A7ED517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7500135B-319D-49EC-9BEF-D8379A7ED517}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7500135B-319D-49EC-9BEF-D8379A7ED517}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7500135B-319D-49EC-9BEF-D8379A7ED517}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
