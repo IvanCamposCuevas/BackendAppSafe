@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f756567e813c48fb948a4f311d4d3bf5" Name="Diagram1">
+        <EntityTypeShape EntityType="BDSafeModelo.ALERGIA" Width="1.5" PointX="19.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.ASISTENCIA" Width="1.5" PointX="21.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.ATENCION" Width="1.5" PointX="20.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.CAPACITACION" Width="1.5" PointX="17.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.CONTRATO" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.CURSO" Width="1.5" PointX="19.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.EMPRESA" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.EVALUACION" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.EXAMEN" Width="1.5" PointX="22.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.FICHA_MEDICA" Width="1.5" PointX="17.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.INFORME_FINAL" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.MEDICO" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.PERFIL_USUARIO" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.PLAN_CAPACITACION" Width="1.5" PointX="15" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.REGISTRO_PARTICIPANTES" Width="1.5" PointX="21.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.TIPO_EVALUACION" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.TIPO_EXAMEN" Width="1.5" PointX="20.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.TRABAJADOR" Width="1.5" PointX="15" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.USUARIO" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.VISITA_MEDICA" Width="1.5" PointX="18" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDSafeModelo.FERIADO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BDSafeModelo.ASISTENCIA_CURSO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.ATENCION_FICHA_MEDICA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.ATENCION_VISITA_MEDICA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.EXAMEN_ATENCION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.CAPAC_P_CAPACITACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.CURSO_CAPACITACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.CONTRATO_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.EVALUACION_CONTRATO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.PLAN_CAPACITACION_CONTRATO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.TRABAJADOR_CONTRATO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.VISITA_MEDICA_CONTRATO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.REG_PARTICIPANTES_CURSO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.EMPRESA_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.TRABAJADOR_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.EVALUACION_TIPO_EVALUACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.INFORME_FINAL_EVALUACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.EXAMEN_TIPO_EXAMEN_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.FICHA_MEDICA_TRABAJADOR_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.INFORME_FINAL_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.MEDICO_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.VISITA_MEDICA_MEDICO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.USUARIO_PERFIL_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.REG_PARTICIP_TRABAJADOR_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.TRABAJADOR_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.REGISTRO_ALERGIA" ManuallyRouted="false" />
+        <AssociationConnector Association="BDSafeModelo.USUARIO_EVALUACION" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
