@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDSafeModelo.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BDSafeModelo.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ALERGIA">
           <Key>
             <PropertyRef Name="ID" />
@@ -560,6 +560,7 @@ advertencia 6002: La tabla o vista 'BD_SAFE.FERIADO' no tiene definida ninguna c
           </ReferentialConstraint>
         </Association>
         <Function Name="FN_VERCONTRATO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BD_SAFE" />
+        <Function Name="FN_VERCURSO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BD_SAFE" />
         <Function Name="FN_VEREXAMEN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="BD_SAFE">
           <Parameter Name="ID_ATENCION" Type="number" Mode="In" />
         </Function>
@@ -791,8 +792,7 @@ FROM "BD_SAFE"."FERIADO" "FERIADO"</DefiningQuery>
             <End Role="VISITA_MEDICA" EntitySet="VISITA_MEDICA" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDSafeModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1472,21 +1472,21 @@ FROM "BD_SAFE"."FERIADO" "FERIADO"</DefiningQuery>
           </AssociationSet>
           <FunctionImport Name="FN_VERCONTRATO" />
           <FunctionImport Name="FN_VEREXAMEN">
-            <Parameter Name="ID_ATENCION" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_ATENCION" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="FN_VERTIPODEEVALUACION" />
-          <FunctionImport Name="FN_VERUSUARIOS" />
+          <FunctionImport Name="FN_VERUSUARIOS" EntitySet="USUARIO" ReturnType="Collection(BDSafeModelo.USUARIO)" />
           <FunctionImport Name="FN_VERVISITASMEDICAS">
-            <Parameter Name="ID_MEDICO" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_MEDICO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="FN_VERVISITASMEDICASPORFECHA">
-            <Parameter Name="FECHA_VISITA" Mode="In" Type="DateTime" />
+          <Parameter Name="FECHA_VISITA" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="PR_CERRARCONTRATO">
-            <Parameter Name="ID_CONTRATO" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_CONTRATO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="PR_CERRARPLAN">
-            <Parameter Name="ID_PLAN" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_PLAN" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="PR_CREARATENCION">
             <Parameter Name="DESC_ATENCION" Mode="In" Type="String" />
@@ -1520,7 +1520,7 @@ FROM "BD_SAFE"."FERIADO" "FERIADO"</DefiningQuery>
             <Parameter Name="ID_CONTRATO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="PR_CREARTIPODEEVALUACION">
-            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+          <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="PR_CREARUSUARIO">
             <Parameter Name="RUT" Mode="In" Type="Decimal" />
@@ -1540,10 +1540,10 @@ FROM "BD_SAFE"."FERIADO" "FERIADO"</DefiningQuery>
             <Parameter Name="ID_MEDICO" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="PR_ELIMINARCAPACITACION">
-            <Parameter Name="ID_CAPACITACION" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_CAPACITACION" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="PR_ELIMINAREVALUACION">
-            <Parameter Name="ID_EVALUACION" Mode="In" Type="Decimal" />
+          <Parameter Name="ID_EVALUACION" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="PR_MODIFICARTIPOEVALUACION">
             <Parameter Name="ID_EVALUACION" Mode="In" Type="Decimal" />
@@ -1561,6 +1561,7 @@ FROM "BD_SAFE"."FERIADO" "FERIADO"</DefiningQuery>
             <Parameter Name="FECHA_REGISTRO" Mode="In" Type="DateTime" />
             <Parameter Name="ID_PERFIL_USUARIO" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="FN_VERCURSO" EntitySet="CURSO" ReturnType="Collection(BDSafeModelo.CURSO)" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1825,6 +1826,7 @@ FROM "BD_SAFE"."FERIADO" "FERIADO"</DefiningQuery>
           <FunctionImportMapping FunctionImportName="PR_ELIMINAREVALUACION" FunctionName="BDSafeModelo.Store.PR_ELIMINAREVALUACION" />
           <FunctionImportMapping FunctionImportName="PR_MODIFICARTIPOEVALUACION" FunctionName="BDSafeModelo.Store.PR_MODIFICARTIPOEVALUACION" />
           <FunctionImportMapping FunctionImportName="PR_MODIFICARUSUARIO" FunctionName="BDSafeModelo.Store.PR_MODIFICARUSUARIO" />
+          <FunctionImportMapping FunctionImportName="FN_VERCURSO" FunctionName="BDSafeModelo.Store.FN_VERCURSO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

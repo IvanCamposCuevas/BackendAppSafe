@@ -69,9 +69,14 @@ namespace BackSafe.AccesoDatos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FN_VERTIPODEEVALUACION");
         }
     
-        public virtual int FN_VERUSUARIOS()
+        public virtual ObjectResult<USUARIO> FN_VERUSUARIOS()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FN_VERUSUARIOS");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USUARIO>("FN_VERUSUARIOS");
+        }
+    
+        public virtual ObjectResult<USUARIO> FN_VERUSUARIOS(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USUARIO>("FN_VERUSUARIOS", mergeOption);
         }
     
         public virtual int FN_VERVISITASMEDICAS(Nullable<decimal> iD_MEDICO)
@@ -361,6 +366,16 @@ namespace BackSafe.AccesoDatos
                 new ObjectParameter("ID_PERFIL_USUARIO", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PR_MODIFICARUSUARIO", rUTParameter, cONTRASEÑAParameter, nOMBREParameter, aPE_PATERNOParameter, aPE_MATERNOParameter, dIRECCIONParameter, tELEFONOParameter, eMAILParameter, fECHA_REGISTROParameter, iD_PERFIL_USUARIOParameter);
+        }
+    
+        public virtual ObjectResult<CURSO> FN_VERCURSO()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CURSO>("FN_VERCURSO");
+        }
+    
+        public virtual ObjectResult<CURSO> FN_VERCURSO(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CURSO>("FN_VERCURSO", mergeOption);
         }
     }
 }
