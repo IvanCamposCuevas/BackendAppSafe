@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -29,6 +30,11 @@ namespace BackSafe.Servicio
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public DataSet retornarUsuarios()
+        {
+            return new Usuarios().obtenerUsuarios();
         }
     }
 }

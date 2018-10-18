@@ -29,15 +29,29 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -48,113 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ALERGIA.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ASISTENCIA.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ATENCION.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDSafe.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BDSafe.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDSafe.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDSafe.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BDSafe.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="CAPACITACION.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CONTRATO.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CURSO.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EMPRESA.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EVALUACION.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EXAMEN.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FERIADO.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FICHA_MEDICA.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="INFORME_FINAL.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MEDICO.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PERFIL_USUARIO.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PLAN_CAPACITACION.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
+    <Compile Include="ConexionBD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="REGISTRO_PARTICIPANTES.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TIPO_EVALUACION.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TIPO_EXAMEN.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TRABAJADOR.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="USUARIO.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VISITA_MEDICA.cs">
-      <DependentUpon>BDSafe.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="BDSafe.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BDSafe.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="BDSafe.edmx.diagram">
-      <DependentUpon>BDSafe.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BDSafe.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BDSafe.edmx</DependentUpon>
-      <LastGenOutput>BDSafe.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="BDSafe.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BDSafe.edmx</DependentUpon>
-      <LastGenOutput>BDSafe.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
