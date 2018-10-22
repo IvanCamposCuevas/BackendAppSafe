@@ -175,7 +175,7 @@ namespace BackSafe.AccesoDatos
         }
 
 
-        public void retornarUsuarios()
+        public void retornarDatosFunciones()
         {
             comprobarConexion();
 
@@ -183,12 +183,308 @@ namespace BackSafe.AccesoDatos
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor,ParameterDirection.ReturnValue);
+                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
                 this.dbDataAdapter = new OracleDataAdapter(variableSQL);
                 this.DbDat = new System.Data.DataSet();
                 this.dbDataAdapter.Fill(DbDat, this.NombreTabla);
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, 
+                                            string direccion, decimal telefono, string email, decimal idPerfil)
+        {
+            comprobarConexion();
+
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("rut",rut);
+                variableSQL.Parameters.Add("contraseña", contraseña);
+                variableSQL.Parameters.Add("nombre", nombre);
+                variableSQL.Parameters.Add("ape_paterno", appaterno);
+                variableSQL.Parameters.Add("ape_materno", apmaterno);
+                variableSQL.Parameters.Add("direccion", direccion);
+                variableSQL.Parameters.Add("telefono", telefono);
+                variableSQL.Parameters.Add("email", email);
+                variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcModificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil)
+        {
+            comprobarConexion();
+
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("rut", rut);
+                variableSQL.Parameters.Add("contraseña", contraseña);
+                variableSQL.Parameters.Add("nombre", nombre);
+                variableSQL.Parameters.Add("ape_paterno", appaterno);
+                variableSQL.Parameters.Add("ape_materno", apmaterno);
+                variableSQL.Parameters.Add("direccion", direccion);
+                variableSQL.Parameters.Add("telefono", telefono);
+                variableSQL.Parameters.Add("email", email);
+                variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearVisita(DateTime fecVisita, decimal idContrato, decimal idMedico)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("fec_visita", fecVisita);
+                variableSQL.Parameters.Add("id_contrato", idContrato);
+                variableSQL.Parameters.Add("id_medico", idMedico);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcEliminarCapacitacion(decimal idCapactiacion)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("id_capacitacion", idCapactiacion);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearTipoEval(string desc)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("descripcion", desc);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearPlan(string descPlan, decimal idContrato)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("desc_plan", descPlan);
+                variableSQL.Parameters.Add("id_contrato", idContrato);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearExamen(string descExamen, DateTime fecExamen, decimal idTipoExamen, decimal idAtencion)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("desc_examen", descExamen);
+                variableSQL.Parameters.Add("f_examen", fecExamen);
+                variableSQL.Parameters.Add("id_tipo_examen", idTipoExamen);
+                variableSQL.Parameters.Add("id_atencion", idAtencion);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearCurso(string descCurso, decimal capacId)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("desc_curso", descCurso);
+                variableSQL.Parameters.Add("capac_id", capacId);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearContrato(string descContrato, DateTime fecInicioContrato, decimal idEmpresa)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("desc_contrato", descContrato);
+                variableSQL.Parameters.Add("fecha_inicio_contrato", fecInicioContrato);
+                variableSQL.Parameters.Add("id_empresa", idEmpresa);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearCapacitacion(string descCapacitacion, decimal minParticipantes, string nomExpositor,
+                                                  DateTime fecFinal, decimal idPlanCapacitacion)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("desc_capacitacion", descCapacitacion);
+                variableSQL.Parameters.Add("min_participantes", minParticipantes);
+                variableSQL.Parameters.Add("nom_expositor", nomExpositor);
+                variableSQL.Parameters.Add("fecha_final", fecFinal);
+                variableSQL.Parameters.Add("id_plan_capacitacion", idPlanCapacitacion);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearAtencion(string descAtencion, decimal idFicha, decimal idVisitaMedica)
+        {
+            comprobarConexion();
+
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("desc_atencion", descAtencion);
+                variableSQL.Parameters.Add("id_ficha", idFicha);
+                variableSQL.Parameters.Add("id_visita_medica", idVisitaMedica);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCerrarPlan(decimal idPlan)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("id_plan", idPlan);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCerrarContrato(decimal idContrato)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("id_contrato", idContrato);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
             }
             catch (OracleException ex)
             {

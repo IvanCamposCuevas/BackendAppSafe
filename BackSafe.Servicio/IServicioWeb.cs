@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Data;
 namespace BackSafe.Servicio
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IService1" en el código y en el archivo de configuración a la vez.
@@ -19,7 +20,15 @@ namespace BackSafe.Servicio
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         [OperationContract]
-        System.Data.DataSet retornarUsuarios();
+        DataSet retornarUsuarios();
+
+        [OperationContract]
+        Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                            string direccion, decimal telefono, string email, decimal idPerfil);
+
+        [OperationContract]
+        bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                            string direccion, decimal telefono, string email, decimal idPerfil);
         // TODO: agregue aquí sus operaciones de servicio
     }
 
