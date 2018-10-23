@@ -4,8 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BackSafe.AccesoDatos;
+using System.Runtime.Serialization;
+
 namespace BackSafe.Negocio
 {
+    
     public class AccesoConexion
     {
         public AccesoConexion()
