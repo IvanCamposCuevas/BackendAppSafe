@@ -492,6 +492,8 @@ namespace BackSafe.AccesoDatos
                 throw;
             }
         }
+        
+        
 
         //public void conectarProcInsertarInteraccion(DataTable datosInteraccion, DataTable idParticipantes) {
 

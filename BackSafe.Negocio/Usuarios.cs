@@ -27,13 +27,15 @@ namespace BackSafe.Negocio
         public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                     string direccion, decimal telefono, string email, decimal idPerfil)
         {
+            string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "pr_CrearUsuario";
-            return Conexion.conectarProcCrearUsuario(rut,contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
+            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
         }
 
         public Boolean modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                     string direccion, decimal telefono, string email, decimal idPerfil)
         {
+            string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "pr_ModificarUsuario";
             return Conexion.conectarProcModificarUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
         }
