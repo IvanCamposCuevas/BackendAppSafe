@@ -50,5 +50,9 @@ namespace BackSafe.Servicio
             return new Usuarios().obtenerUsuarios();
         }
 
+        public bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico)
+        {
+            return new VisitaMedica().crearVisitaMedica(fecVisita, idContrato, idMedico);
+        }
     }
 }

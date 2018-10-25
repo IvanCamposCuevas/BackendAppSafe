@@ -33,6 +33,8 @@ namespace BackSafe.Servicio
         bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                             string direccion, decimal telefono, string email, decimal idPerfil);
 
+        [OperationContract]
+        bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico);
         // TODO: agregue aquí sus operaciones de servicio
     }
 
