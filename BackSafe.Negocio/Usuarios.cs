@@ -37,7 +37,7 @@ namespace BackSafe.Negocio
         {
             string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "pr_ModificarUsuario";
-            return Conexion.conectarProcModificarUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
+            return Conexion.conectarProcModificarUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
         }
     }
 }
