@@ -238,13 +238,13 @@ namespace BackSafe.AccesoDatos
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("rut", rut);
                 variableSQL.Parameters.Add("contraseña", contraseña);
-                variableSQL.Parameters.Add("nombre", nombre);
-                variableSQL.Parameters.Add("ape_paterno", appaterno);
-                variableSQL.Parameters.Add("ape_materno", apmaterno);
-                variableSQL.Parameters.Add("direccion", direccion);
-                variableSQL.Parameters.Add("telefono", telefono);
-                variableSQL.Parameters.Add("email", email);
-                variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+                variableSQL.Parameters.Add("mnombre", nombre);
+                variableSQL.Parameters.Add("mape_paterno", appaterno);
+                variableSQL.Parameters.Add("mape_materno", apmaterno);
+                variableSQL.Parameters.Add("mdireccion", direccion);
+                variableSQL.Parameters.Add("mtelefono", telefono);
+                variableSQL.Parameters.Add("memail", email);
+                variableSQL.Parameters.Add("mid_perfil_usuario", idPerfil);
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();

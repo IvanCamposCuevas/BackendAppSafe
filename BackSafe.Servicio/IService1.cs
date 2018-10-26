@@ -26,6 +26,12 @@ namespace BackSafe.Servicio
         List<EntUsuario> retornarUsuarios();
 
         [OperationContract]
+        List<EntTipoEvaluacion> retornarTiposEvaluacion();
+
+        [OperationContract]
+        Boolean crearTipoEvaluacion(string descripcion);
+
+        [OperationContract]
         Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                             string direccion, decimal telefono, string email, decimal idPerfil);
 
