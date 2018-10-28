@@ -35,6 +35,9 @@ namespace BackSafe.Servicio
 
         [OperationContract]
         bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico);
+
+        [OperationContract]
+        string login(decimal rut, string contraseña);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

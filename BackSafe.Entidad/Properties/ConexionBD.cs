@@ -493,23 +493,19 @@ namespace BackSafe.AccesoDatos
             }
         }
         
-       public string retornarConfirmacionLogin(decimal rut, string contraseña)
+        public string retornarEstadoLogin(decimal rutUsuario, string contraseña)
         {
             comprobarConexion();
             try
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("idPerfil", OracleDbType.Int32, ParameterDirection.ReturnValue);
-                variableSQL.Parameters.Add("rutUsuario", rut);
+                variableSQL.Parameters.Add("rutUsuario", rutUsuario);
                 variableSQL.Parameters.Add("contrUsuario", contraseña);
-
-                variableSQL.ExecuteNonQuery();
+                variableSQL.Parameters.Add("idPerfil", OracleDbType.Int16, ParameterDirection.ReturnValue);
+                string valor = variableSQL.ExecuteScalar().ToString();
                 cerrarConexion();
-                string idPerfil = variableSQL.Parameters["idPerfil"].Value.ToString();
-
-                return idPerfil;
-
+                return valor;
             }
             catch (OracleException ex)
             {
