@@ -44,10 +44,20 @@ namespace BackSafe.Servicio
             return new Usuarios().modificarUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
         }
 
+        public bool crearTipoEvaluacion(string descripcion)
+        {
+            return new TiposEvaluacion().crearTipoEvaluacion(descripcion);
+        }
+
 
         public List<EntUsuario> retornarUsuarios()
         {
             return new Usuarios().obtenerUsuarios();
+        }
+
+        public List<EntTipoEvaluacion> retornarTiposEvaluacion()
+        {
+            return new TiposEvaluacion().obtenerTipoEvaluacion();
         }
 
         public bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico)
