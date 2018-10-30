@@ -35,6 +35,9 @@ namespace BackSafe.Servicio
         bool modificarTipoEvaluacion(decimal id_tipoeval, string descripcion);
 
         [OperationContract]
+        bool eliminarTipoEvaluacion(decimal id_tipoeval);
+
+        [OperationContract]
         Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                             string direccion, decimal telefono, string email, decimal idPerfil);
 

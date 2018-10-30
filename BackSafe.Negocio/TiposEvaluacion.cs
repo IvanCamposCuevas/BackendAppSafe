@@ -34,5 +34,11 @@ namespace BackSafe.Negocio
             Conexion.IntruccioneSQL = "pr_ModificarTipoEvaluacion";
             return Conexion.conectarProcModificarTipoEval(id_tipoeval, descripcion);
         }
+
+        public Boolean eliminarTipoEvaluacion(decimal id_tipoeval)
+        {
+            Conexion.IntruccioneSQL = "pr_EliminarTipoEvaluacion";
+            return Conexion.conectarProcEliminarTipoEvaluacion(id_tipoeval);
+        }
     }
 }

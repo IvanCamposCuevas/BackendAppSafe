@@ -54,6 +54,11 @@ namespace BackSafe.Servicio
             return new TiposEvaluacion().modificarTipoEvaluacion(id_tipoeval, descripcion);
         }
 
+        public bool eliminarTipoEvaluacion(decimal id_tipoeval)
+        {
+            return new TiposEvaluacion().eliminarTipoEvaluacion(id_tipoeval);
+        }
+
 
         public List<EntUsuario> retornarUsuarios()
         {
