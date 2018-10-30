@@ -32,6 +32,9 @@ namespace BackSafe.Servicio
         Boolean crearTipoEvaluacion(string descripcion);
 
         [OperationContract]
+        bool modificarTipoEvaluacion(decimal id_tipoeval, string descripcion);
+
+        [OperationContract]
         Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                             string direccion, decimal telefono, string email, decimal idPerfil);
 

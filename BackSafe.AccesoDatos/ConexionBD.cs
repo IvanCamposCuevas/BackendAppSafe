@@ -318,6 +318,27 @@ namespace BackSafe.AccesoDatos
             }
         }
 
+        public bool conectarProcModificarTipoEval(decimal id_tipoev, string desc)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("id_evaluacion", id_tipoev);
+                variableSQL.Parameters.Add("mdescripcion", desc);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException)
+            {
+
+                throw;
+            }
+        }
+
         public bool conectarProcCrearPlan(string descPlan, decimal idContrato)
         {
             comprobarConexion();
