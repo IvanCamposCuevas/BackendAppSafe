@@ -44,6 +44,15 @@ namespace BackSafe.Servicio
 
         [OperationContract]
         string login(decimal rut, string contraseña);
+
+        [OperationContract]
+        List<EntContrato> obtenerContratos();
+
+        [OperationContract]
+        List<EntCurso> obtenerCursos();
+
+        [OperationContract]
+        List<object> obtenerExmanes(decimal idAtencion);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

@@ -69,5 +69,17 @@ namespace BackSafe.Servicio
         {
             return new Usuarios().retornarLogin(rut, contraseña);
         }
+
+        public List<EntContrato> obtenerContratos()
+        {
+            return new Contrato().retornarTodosLosContratos();
+        }
+
+        public List<EntCurso> obtenerCursos()
+        {
+            return new Curso().retornarCursos();
+        }
+
+        public List<object> obtenerExmanes(decimal idAtencion) => new Examen().retornarListaExamenes(idAtencion);
     }
 }

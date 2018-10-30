@@ -197,6 +197,28 @@ namespace BackSafe.AccesoDatos
             }
         }
 
+        public void retornarDatosExamenes(decimal idAtencion)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                variableSQL.Parameters.Add("id_atencion", idAtencion);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                this.dbDataAdapter = new OracleDataAdapter(variableSQL);
+                this.DbDat = new System.Data.DataSet();
+                this.dbDataAdapter.Fill(DbDat, this.NombreTabla);
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
         public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, 
                                             string direccion, decimal telefono, string email, decimal idPerfil)
         {
