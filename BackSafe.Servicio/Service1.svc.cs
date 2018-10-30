@@ -49,6 +49,16 @@ namespace BackSafe.Servicio
             return new TiposEvaluacion().crearTipoEvaluacion(descripcion);
         }
 
+        public bool modificarTipoEvaluacion(decimal id_tipoeval, string descripcion)
+        {
+            return new TiposEvaluacion().modificarTipoEvaluacion(id_tipoeval, descripcion);
+        }
+
+        public bool eliminarTipoEvaluacion(decimal id_tipoeval) 
+        {
+            return new TiposEvaluacion().eliminarTipoEvaluacion(id_tipoeval);
+        }
+
 
         public List<EntUsuario> retornarUsuarios()
         {
@@ -58,6 +68,11 @@ namespace BackSafe.Servicio
         public List<EntTipoEvaluacion> retornarTiposEvaluacion()
         {
             return new TiposEvaluacion().obtenerTipoEvaluacion();
+        }
+
+        public List<EntPerfilUsuario> retornarPerfilUsuarios()
+        {
+            return new PerfilUsuarios().obtenerPerfilUsuario();
         }
 
         public bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico)
