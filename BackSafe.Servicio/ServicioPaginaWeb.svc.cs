@@ -14,7 +14,7 @@ namespace BackSafe.Servicio
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
     // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
    
-    public class Service1 : IService1
+    public class ServicioPaginaWeb : IServicioPaginaWeb
     {
         public string GetData(int value)
         {
@@ -32,47 +32,6 @@ namespace BackSafe.Servicio
                 composite.StringValue += "Suffix";
             }
             return composite;
-        }
-
-        public bool crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil)
-        {
-            return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
-        }
-
-        public bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil)
-        {
-            return new Usuarios().modificarUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
-        }
-
-        public bool crearTipoEvaluacion(string descripcion)
-        {
-            return new TiposEvaluacion().crearTipoEvaluacion(descripcion);
-        }
-
-        public bool modificarTipoEvaluacion(decimal id_tipoeval, string descripcion)
-        {
-            return new TiposEvaluacion().modificarTipoEvaluacion(id_tipoeval, descripcion);
-        }
-
-        public bool eliminarTipoEvaluacion(decimal id_tipoeval) 
-        {
-            return new TiposEvaluacion().eliminarTipoEvaluacion(id_tipoeval);
-        }
-
-
-        public List<EntUsuario> retornarUsuarios()
-        {
-            return new Usuarios().obtenerUsuarios();
-        }
-
-        public List<EntTipoEvaluacion> retornarTiposEvaluacion()
-        {
-            return new TiposEvaluacion().obtenerTipoEvaluacion();
-        }
-
-        public List<EntPerfilUsuario> retornarPerfilUsuarios()
-        {
-            return new PerfilUsuarios().obtenerPerfilUsuario();
         }
 
         public bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico)
