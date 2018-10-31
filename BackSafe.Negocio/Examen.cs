@@ -9,18 +9,12 @@ namespace BackSafe.Negocio
 {
     public class Examen : AccesoConexion
     {
-        public List<object> retornarListaExamenes(decimal idAtencion)
+        public DataSet retornarListaExamenes(decimal idAtencion)
         {
-            Conexion.IntruccioneSQL = "fn_verexman";
+            Conexion.IntruccioneSQL = "fn_verexamen";
             Conexion.retornarDatosExamenes(idAtencion);
-            List<object> listaExamenes = new List<object>();
-            var sajdsa = Conexion.DbDat.Tables[Conexion.NombreTabla].AsEnumerable().ToList<object>();
 
-            return sajdsa;
-            //foreach (DataRow item in Conexion.DbDat.Tables[Conexion.NombreTabla].Rows)
-            //{
-               
-            //}
+            return Conexion.DbDat;
         }
     }
 }

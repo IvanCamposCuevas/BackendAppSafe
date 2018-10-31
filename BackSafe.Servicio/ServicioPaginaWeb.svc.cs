@@ -44,16 +44,16 @@ namespace BackSafe.Servicio
             return new Usuarios().retornarLogin(rut, contraseña);
         }
 
-        public List<EntContrato> obtenerContratos()
+        public DataSet obtenerContratos()
         {
             return new Contrato().retornarTodosLosContratos();
         }
 
-        public List<EntCurso> obtenerCursos()
+        public DataSet obtenerCursos()
         {
             return new Curso().retornarCursos();
         }
 
-        public List<object> obtenerExmanes(decimal idAtencion) => new Examen().retornarListaExamenes(idAtencion);
+        public DataSet obtenerExamanes(decimal idAtencion) => new Examen().retornarListaExamenes(idAtencion);
     }
 }

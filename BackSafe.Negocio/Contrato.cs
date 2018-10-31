@@ -10,17 +10,12 @@ namespace BackSafe.Negocio
 {
     public class Contrato : AccesoConexion
     {
-        public List<EntContrato> retornarTodosLosContratos()
+        public DataSet retornarTodosLosContratos()
         {
             Conexion.IntruccioneSQL = "fn_vercontrato";
             Conexion.retornarDatosFunciones();
-            List<EntContrato> listaContrato = new List<EntContrato>();
-            foreach (DataRow fila in Conexion.DbDat.Tables[Conexion.NombreTabla].Rows)
-            {
-                listaContrato.Add(new EntContrato(fila["id"].ToString(), fila["contrato"].ToString(), fila["fecha_inicio_contrato"].ToString(), fila["estado"].ToString(), fila["empresa_id"].ToString()));
-            }
 
-            return listaContrato;
+            return Conexion.DbDat;
         }
     }
 }

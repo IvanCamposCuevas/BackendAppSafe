@@ -30,13 +30,13 @@ namespace BackSafe.Servicio
         string login(decimal rut, string contraseña);
 
         [OperationContract]
-        List<EntContrato> obtenerContratos();
+        DataSet obtenerContratos();
 
         [OperationContract]
-        List<EntCurso> obtenerCursos();
+        DataSet obtenerCursos();
 
         [OperationContract]
-        List<object> obtenerExmanes(decimal idAtencion);
+        DataSet obtenerExamanes(decimal idAtencion);
         // TODO: agregue aquí sus operaciones de servicio
     }
 
