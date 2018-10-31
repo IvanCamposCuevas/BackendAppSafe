@@ -74,6 +74,30 @@ namespace BackSafe.Negocio
 
         }
 
+        /// <summary>
+        /// Crea un usuario y le asigna el perfil de medico, junto con sus atributos propios.
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <param name="contraseña"></param>
+        /// <param name="nombre"></param>
+        /// <param name="appaterno"></param>
+        /// <param name="apmaterno"></param>
+        /// <param name="direccion"></param>
+        /// <param name="telefono"></param>
+        /// <param name="email"></param>
+        /// <param name="idPerfil"></param>
+        /// <param name="disponibilidad"></param>
+        /// <param name="mailPrivado"></param>
+        /// <param name="telefonoPriv"></param>
+        /// <returns></returns>
+        public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, string disponibilidad, string mailPrivado, decimal telefonoPriv)
+        {
+            string contrasEncript = Encriptador.Encrypt(contraseña);
+            Conexion.IntruccioneSQL = "pr_CrearUsuarioMedico";
+            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, disponibilidad, mailPrivado, telefonoPriv);
+        }
+
         public Boolean crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
         {
             Conexion.IntruccioneSQL = "pr_CrearEmpresa";

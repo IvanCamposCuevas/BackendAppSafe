@@ -46,5 +46,9 @@ namespace BackSafe.Servicio
 
         [OperationContract]
         bool crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa);
+
+        [OperationContract]
+        bool crearUsuarioMedico(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, string disponibilidad, string mailPrivado, decimal telefonoPriv);
     }
 }
