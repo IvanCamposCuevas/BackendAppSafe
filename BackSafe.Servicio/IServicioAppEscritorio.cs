@@ -43,5 +43,8 @@ namespace BackSafe.Servicio
 
         [OperationContract]
         string login(decimal rut, string contraseña);
+
+        [OperationContract]
+        bool crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa);
     }
 }

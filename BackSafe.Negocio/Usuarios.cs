@@ -74,6 +74,12 @@ namespace BackSafe.Negocio
 
         }
 
+        public Boolean crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        {
+            Conexion.IntruccioneSQL = "pr_CrearEmpresa";
+            return Conexion.conectarProcCrearEmpresa(usuarioId, nomEmpresa, runEmpresa);
+        }
+
         public Boolean modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                     string direccion, decimal telefono, string email, decimal idPerfil)
         {

@@ -65,5 +65,10 @@ namespace BackSafe.Servicio
             return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil
                                                      , nomEmpresa, runEmpresa);
         }
+
+        public bool crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        {
+            return new Usuarios().crearEmpresa(usuarioId, nomEmpresa, runEmpresa);
+        }
     }
 }
