@@ -219,6 +219,50 @@ namespace BackSafe.AccesoDatos
             }
         }
 
+        public void retornarDatosVisitaMedicaPorIdMedico(decimal idMedico)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                variableSQL.Parameters.Add("id_medico", idMedico);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                this.dbDataAdapter = new OracleDataAdapter(variableSQL);
+                this.DbDat = new System.Data.DataSet();
+                this.dbDataAdapter.Fill(DbDat, this.NombreTabla);
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public void retornarVisitaMedicaPorFecha(DateTime fecha)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                variableSQL.Parameters.Add("fecha_visita", OracleDbType.Date,fecha, ParameterDirection.Input);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                this.dbDataAdapter = new OracleDataAdapter(variableSQL);
+                this.DbDat = new System.Data.DataSet();
+                this.dbDataAdapter.Fill(DbDat, this.NombreTabla);
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
         public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, 
                                             string direccion, decimal telefono, string email, decimal idPerfil)
         {
@@ -237,6 +281,76 @@ namespace BackSafe.AccesoDatos
                 variableSQL.Parameters.Add("telefono", telefono);
                 variableSQL.Parameters.Add("email", email);
                 variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Se conecta al Procedimiento en donde se creara tanto el usuario como la empresa.
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <param name="contraseña"></param>
+        /// <param name="nombre"></param>
+        /// <param name="appaterno"></param>
+        /// <param name="apmaterno"></param>
+        /// <param name="direccion"></param>
+        /// <param name="telefono"></param>
+        /// <param name="email"></param>
+        /// <param name="idPerfil"></param>
+        /// <param name="nomEmpresa"></param>
+        /// <param name="runEmpresa"></param>
+        /// <returns></returns>
+        public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                            string direccion, decimal telefono, string email, decimal idPerfil, string nomEmpresa, string runEmpresa)
+        {
+            comprobarConexion();
+
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("rut", rut);
+                variableSQL.Parameters.Add("contraseña", contraseña);
+                variableSQL.Parameters.Add("nombre", nombre);
+                variableSQL.Parameters.Add("ape_paterno", appaterno);
+                variableSQL.Parameters.Add("ape_materno", apmaterno);
+                variableSQL.Parameters.Add("direccion", direccion);
+                variableSQL.Parameters.Add("telefono", telefono);
+                variableSQL.Parameters.Add("email", email);
+                variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+                variableSQL.Parameters.Add("nomEmpresa", nomEmpresa);
+                variableSQL.Parameters.Add("runEmpresa", runEmpresa);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcCrearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        {
+            comprobarConexion();
+
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("usuarioId", usuarioId);
+                variableSQL.Parameters.Add("nomEmpresa", nomEmpresa);
+                variableSQL.Parameters.Add("runEmpresa", runEmpresa);
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();

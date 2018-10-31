@@ -37,6 +37,12 @@ namespace BackSafe.Servicio
 
         [OperationContract]
         DataSet obtenerExamanes(decimal idAtencion);
+
+        [OperationContract]
+        DataSet obtenerVisitaPorId(decimal idMedico);
+
+        [OperationContract]
+        DataSet obtenerVisitaPorFecha(DateTime fecha);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

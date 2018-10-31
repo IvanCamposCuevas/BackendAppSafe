@@ -55,5 +55,9 @@ namespace BackSafe.Servicio
         }
 
         public DataSet obtenerExamanes(decimal idAtencion) => new Examen().retornarListaExamenes(idAtencion);
+
+        public DataSet obtenerVisitaPorId(decimal idMedico) => new VisitaMedica().retornarVisitaMedicaPorId(idMedico);
+
+        public DataSet obtenerVisitaPorFecha(DateTime fecha) => new VisitaMedica().retornarVisitaMedicaPorFecha(fecha);
     }
 }

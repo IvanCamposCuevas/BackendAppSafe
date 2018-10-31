@@ -24,12 +24,54 @@ namespace BackSafe.Negocio
             return listaUsuarios;
         }
 
+        /// <summary>
+        /// Crea un usuario con atributos generales, donde se encuentran:
+        /// Administrador,
+        /// Tecnico,
+        /// Ingeniero y
+        /// Supervisor
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <param name="contraseña"></param>
+        /// <param name="nombre"></param>
+        /// <param name="appaterno"></param>
+        /// <param name="apmaterno"></param>
+        /// <param name="direccion"></param>
+        /// <param name="telefono"></param>
+        /// <param name="email"></param>
+        /// <param name="idPerfil"></param>
+        /// <returns></returns>
         public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                     string direccion, decimal telefono, string email, decimal idPerfil)
         {
             string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "pr_CrearUsuario";
             return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
+        }
+
+        /// <summary>
+        /// Crea un usuario de tipo empresa
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <param name="contraseña"></param>
+        /// <param name="nombre"></param>
+        /// <param name="appaterno"></param>
+        /// <param name="apmaterno"></param>
+        /// <param name="direccion"></param>
+        /// <param name="telefono"></param>
+        /// <param name="email"></param>
+        /// <param name="idPerfil"></param>
+        /// <param name="nomEmpresa"></param>
+        /// <param name="runEmpresa"></param>
+        /// <returns></returns>
+        public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, string nomEmpresa, string runEmpresa)
+        {
+            string contrasEncript = Encriptador.Encrypt(contraseña);
+            Conexion.IntruccioneSQL = "pr_CrearUsuarioEmpresa";
+            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil
+                                                     , nomEmpresa, runEmpresa);
+
         }
 
         public Boolean modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
