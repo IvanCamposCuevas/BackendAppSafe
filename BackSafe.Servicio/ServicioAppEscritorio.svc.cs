@@ -28,6 +28,16 @@ namespace BackSafe.Servicio
             return new TiposEvaluacion().crearTipoEvaluacion(descripcion);
         }
 
+        public bool crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        {
+            return new Empresas().crearEmpresa(usuarioId, nomEmpresa, runEmpresa);
+        }
+
+        public bool modificarEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        {
+            return new Empresas().modificarEmpresa(usuarioId, nomEmpresa, runEmpresa);
+        }
+
         public bool modificarTipoEvaluacion(decimal id_tipoeval, string descripcion)
         {
             return new TiposEvaluacion().modificarTipoEvaluacion(id_tipoeval, descripcion);
@@ -38,10 +48,20 @@ namespace BackSafe.Servicio
             return new TiposEvaluacion().eliminarTipoEvaluacion(id_tipoeval);
         }
 
+        public bool eliminarEmpresa(decimal run_empresa)
+        {
+            return new Empresas().eliminarEmpresa(run_empresa);
+        }
+
 
         public List<EntUsuario> retornarUsuarios()
         {
             return new Usuarios().obtenerUsuarios();
+        }
+
+        public List<EntEmpresa> retornarEmpresas()
+        {
+            return new Empresas().obtenerEmpresas();
         }
 
         public List<EntTipoEvaluacion> retornarTiposEvaluacion()
@@ -66,9 +86,5 @@ namespace BackSafe.Servicio
                                                      , nomEmpresa, runEmpresa);
         }
 
-        public bool crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
-        {
-            return new Usuarios().crearEmpresa(usuarioId, nomEmpresa, runEmpresa);
-        }
     }
 }
