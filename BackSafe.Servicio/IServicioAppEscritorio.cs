@@ -15,6 +15,9 @@ namespace BackSafe.Servicio
         List<EntUsuario> retornarUsuarios();
 
         [OperationContract]
+        List<EntEmpresa> retornarEmpresas();
+
+        [OperationContract]
         List<EntTipoEvaluacion> retornarTiposEvaluacion();
 
         [OperationContract]
@@ -30,8 +33,17 @@ namespace BackSafe.Servicio
         bool eliminarTipoEvaluacion(decimal id_tipoeval);
 
         [OperationContract]
+        bool eliminarEmpresa(decimal run_empresa);
+
+        [OperationContract]
         Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                             string direccion, decimal telefono, string email, decimal idPerfil);
+
+        [OperationContract]
+        Boolean crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa);
+
+        [OperationContract]
+        bool modificarEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa);
 
         [OperationContract]
         bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,

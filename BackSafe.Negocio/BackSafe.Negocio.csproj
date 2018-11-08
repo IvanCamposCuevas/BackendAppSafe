@@ -64,6 +64,7 @@
     <Compile Include="Contrato.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="AccesoConexion.cs" />
+    <Compile Include="Empresas.cs" />
     <Compile Include="Encriptador.cs" />
     <Compile Include="PerfilUsuarios.cs" />
     <Compile Include="Examen.cs" />
