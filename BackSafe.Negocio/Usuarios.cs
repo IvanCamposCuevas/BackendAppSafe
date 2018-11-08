@@ -98,6 +98,34 @@ namespace BackSafe.Negocio
             return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, disponibilidad, mailPrivado, telefonoPriv);
         }
 
+        /// <summary>
+        /// Asigna los atributos de usuario y trabajador, y los guarda en la Base de Datos.
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <param name="contraseña"></param>
+        /// <param name="nombre"></param>
+        /// <param name="appaterno"></param>
+        /// <param name="apmaterno"></param>
+        /// <param name="direccion"></param>
+        /// <param name="telefono"></param>
+        /// <param name="email"></param>
+        /// <param name="idPerfil"></param>
+        /// <param name="mailPrivado"></param>
+        /// <param name="telPrivado"></param>
+        /// <param name="estadoRiesgo"></param>
+        /// <param name="contratoId"></param>
+        /// <param name="empresaId"></param>
+        /// <returns></returns>
+        public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, string mailPrivado, decimal telPrivado,
+                                    string estadoRiesgo, decimal contratoId, decimal empresaId)
+        {
+            string contrasEncript = Encriptador.Encrypt(contraseña);
+            Conexion.IntruccioneSQL = "pr_CrearUsuarioTrabajador";
+
+            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, mailPrivado, telPrivado, estadoRiesgo, contratoId, empresaId);
+        }
+
         public Boolean crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
         {
             Conexion.IntruccioneSQL = "pr_CrearEmpresa";

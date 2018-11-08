@@ -390,7 +390,61 @@ namespace BackSafe.AccesoDatos
         }
 
         /// <summary>
-        /// Crear 
+        /// Conectar Procedimiento de creacion de Usuario y Trabajador
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <param name="contraseña"></param>
+        /// <param name="nombre"></param>
+        /// <param name="appaterno"></param>
+        /// <param name="apmaterno"></param>
+        /// <param name="direccion"></param>
+        /// <param name="telefono"></param>
+        /// <param name="email"></param>
+        /// <param name="idPerfil"></param>
+        /// <param name="mailPrivado"></param>
+        /// <param name="telPrivado"></param>
+        /// <param name="estadoRiesgo"></param>
+        /// <param name="contratoId"></param>
+        /// <param name="empresaId"></param>
+        /// <returns></returns>
+        public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, string mailPrivado, decimal telPrivado,
+                                    string estadoRiesgo, decimal contratoId, decimal empresaId)
+        {
+            comprobarConexion();
+
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("rut", rut);
+                variableSQL.Parameters.Add("contraseña", contraseña);
+                variableSQL.Parameters.Add("nombre", nombre);
+                variableSQL.Parameters.Add("ape_paterno", appaterno);
+                variableSQL.Parameters.Add("ape_materno", apmaterno);
+                variableSQL.Parameters.Add("direccion", direccion);
+                variableSQL.Parameters.Add("telefono", telefono);
+                variableSQL.Parameters.Add("email", email);
+                variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+                variableSQL.Parameters.Add("mailprivado", mailPrivado);
+                variableSQL.Parameters.Add("telprivado", telPrivado);
+                variableSQL.Parameters.Add("estriesgo",estadoRiesgo);
+                variableSQL.Parameters.Add("contratoid", contratoId);
+                variableSQL.Parameters.Add("empresaid", empresaId);
+
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Accede al procedimiento para crear una Empresa
         /// </summary>
         /// <param name="usuarioId"></param>
         /// <param name="nomEmpresa"></param>
