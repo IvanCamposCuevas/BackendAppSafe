@@ -295,53 +295,6 @@ namespace BackSafe.AccesoDatos
         }
 
         /// <summary>
-        /// Se conecta al Procedimiento en donde se creara tanto el usuario como la empresa.
-        /// </summary>
-        /// <param name="rut"></param>
-        /// <param name="contraseña"></param>
-        /// <param name="nombre"></param>
-        /// <param name="appaterno"></param>
-        /// <param name="apmaterno"></param>
-        /// <param name="direccion"></param>
-        /// <param name="telefono"></param>
-        /// <param name="email"></param>
-        /// <param name="idPerfil"></param>
-        /// <param name="nomEmpresa"></param>
-        /// <param name="runEmpresa"></param>
-        /// <returns></returns>
-        public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                            string direccion, decimal telefono, string email, decimal idPerfil, string nomEmpresa, string runEmpresa)
-        {
-            comprobarConexion();
-
-            try
-            {
-                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
-                variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("rut", rut);
-                variableSQL.Parameters.Add("contraseña", contraseña);
-                variableSQL.Parameters.Add("nombre", nombre);
-                variableSQL.Parameters.Add("ape_paterno", appaterno);
-                variableSQL.Parameters.Add("ape_materno", apmaterno);
-                variableSQL.Parameters.Add("direccion", direccion);
-                variableSQL.Parameters.Add("telefono", telefono);
-                variableSQL.Parameters.Add("email", email);
-                variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
-                variableSQL.Parameters.Add("nomEmpresa", nomEmpresa);
-                variableSQL.Parameters.Add("runEmpresa", runEmpresa);
-
-                variableSQL.ExecuteNonQuery();
-                cerrarConexion();
-                return true;
-            }
-            catch (OracleException ex)
-            {
-
-                throw;
-            }
-        }
-
-        /// <summary>
         /// Metodo para conectar procedimiento que crea un usuario y un medico
         /// </summary>
         /// <param name="rut"></param>

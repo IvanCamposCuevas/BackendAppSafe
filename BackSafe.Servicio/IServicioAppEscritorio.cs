@@ -48,16 +48,10 @@ namespace BackSafe.Servicio
         [OperationContract]
         bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                             string direccion, decimal telefono, string email, decimal idPerfil);
-        // Acceso a al Servicio, Crear un usuario de tipo empresa.
-        [OperationContract]
-        Boolean crearUsuarioEmpresa(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                            string direccion, decimal telefono, string email, decimal idPerfil, string nomEmpresa, string runEmpresa);
+      
 
         [OperationContract]
         string login(decimal rut, string contraseña);
-
-        [OperationContract]
-        bool crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa);
 
         [OperationContract]
         bool crearUsuarioMedico(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,

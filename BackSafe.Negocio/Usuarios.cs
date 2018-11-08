@@ -50,31 +50,6 @@ namespace BackSafe.Negocio
         }
 
         /// <summary>
-        /// Crea un usuario de tipo empresa
-        /// </summary>
-        /// <param name="rut"></param>
-        /// <param name="contraseña"></param>
-        /// <param name="nombre"></param>
-        /// <param name="appaterno"></param>
-        /// <param name="apmaterno"></param>
-        /// <param name="direccion"></param>
-        /// <param name="telefono"></param>
-        /// <param name="email"></param>
-        /// <param name="idPerfil"></param>
-        /// <param name="nomEmpresa"></param>
-        /// <param name="runEmpresa"></param>
-        /// <returns></returns>
-        public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, decimal telefono, string email, decimal idPerfil, string nomEmpresa, string runEmpresa)
-        {
-            string contrasEncript = Encriptador.Encrypt(contraseña);
-            Conexion.IntruccioneSQL = "pr_CrearUsuarioEmpresa";
-            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil
-                                                     , nomEmpresa, runEmpresa);
-
-        }
-
-        /// <summary>
         /// Crea un usuario y le asigna el perfil de medico, junto con sus atributos propios.
         /// </summary>
         /// <param name="rut"></param>
@@ -124,12 +99,6 @@ namespace BackSafe.Negocio
             Conexion.IntruccioneSQL = "pr_CrearUsuarioTrabajador";
 
             return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, mailPrivado, telPrivado, estadoRiesgo, contratoId, empresaId);
-        }
-
-        public Boolean crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
-        {
-            Conexion.IntruccioneSQL = "pr_CrearEmpresa";
-            return Conexion.conectarProcCrearEmpresa(usuarioId, nomEmpresa, runEmpresa);
         }
 
         public Boolean modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
