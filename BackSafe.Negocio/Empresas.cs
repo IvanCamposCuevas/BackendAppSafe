@@ -11,22 +11,22 @@ namespace BackSafe.Negocio
     public class Empresas : AccesoConexion
     {
 
-        public Boolean crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        public Boolean crearEmpresa(string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa)
         {
             Conexion.IntruccioneSQL = "pr_CrearEmpresa";
-            return Conexion.conectarProcCrearEmpresa(usuarioId, nomEmpresa, runEmpresa);
+            return Conexion.conectarProcCrearEmpresa(nomEmpresa, runEmpresa, dirEmpresa, telEmpresa, corEmpresa);
         }
 
-        public Boolean modificarEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        public Boolean modificarEmpresa(decimal idEmpresa, string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa)
         {
             Conexion.IntruccioneSQL = "PR_MODIFICAREMPRESA";
-            return Conexion.conectarProcModificarEmpresa(usuarioId, nomEmpresa, runEmpresa);
+            return Conexion.conectarProcModificarEmpresa(idEmpresa, nomEmpresa, runEmpresa, dirEmpresa, telEmpresa, corEmpresa);
         }
 
-        public Boolean eliminarEmpresa(decimal run_empresa)
+        public Boolean eliminarEmpresa(decimal idEmpresa)
         {
             Conexion.IntruccioneSQL = "pr_EliminarEmpresa";
-            return Conexion.conectarProcEliminarEmpresa(run_empresa);
+            return Conexion.conectarProcEliminarEmpresa(idEmpresa);
         }
 
         public List<EntEmpresa> obtenerEmpresas()
@@ -36,7 +36,7 @@ namespace BackSafe.Negocio
             List<EntEmpresa> listaEmpresa = new List<EntEmpresa>();
             foreach (DataRow item in Conexion.DbDat.Tables[Conexion.NombreTabla].Rows)
             {
-                listaEmpresa.Add(new EntEmpresa(item["USUARIO_ID"].ToString(), item["NOMBRE_EMPRESA"].ToString(), item["RUN_EMPRESA"].ToString()));
+                listaEmpresa.Add(new EntEmpresa(item["EMPRESA_ID"].ToString(), item["NOMBRE_EMPRESA"].ToString(), item["RUT_EMPRESA"].ToString(), item["DIRECCION"].ToString(), item["TELEFONO"].ToString(), item["CORREO"].ToString()));
             }
             return listaEmpresa;
 

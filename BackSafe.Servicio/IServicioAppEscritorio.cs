@@ -33,17 +33,17 @@ namespace BackSafe.Servicio
         bool eliminarTipoEvaluacion(decimal id_tipoeval);
 
         [OperationContract]
-        bool eliminarEmpresa(decimal run_empresa);
+        bool eliminarEmpresa(decimal idEmpresa);
 
         [OperationContract]
         Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                             string direccion, decimal telefono, string email, decimal idPerfil);
 
         [OperationContract]
-        Boolean crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa);
+        Boolean crearEmpresa(string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa);
 
         [OperationContract]
-        bool modificarEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa);
+        bool modificarEmpresa(decimal idEmpresa, string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa);
 
         [OperationContract]
         bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,

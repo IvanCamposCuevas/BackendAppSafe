@@ -404,7 +404,7 @@ namespace BackSafe.AccesoDatos
         /// <param name="nomEmpresa"></param>
         /// <param name="runEmpresa"></param>
         /// <returns></returns>
-        public bool conectarProcCrearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        public bool conectarProcCrearEmpresa(string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa)
         {
             comprobarConexion();
 
@@ -412,9 +412,11 @@ namespace BackSafe.AccesoDatos
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("usuarioId", usuarioId);
                 variableSQL.Parameters.Add("nomEmpresa", nomEmpresa);
                 variableSQL.Parameters.Add("runEmpresa", runEmpresa);
+                variableSQL.Parameters.Add("dirEmpresa", dirEmpresa);
+                variableSQL.Parameters.Add("telEmpresa", telEmpresa);
+                variableSQL.Parameters.Add("corEmpresa", corEmpresa);
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
@@ -427,7 +429,7 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcModificarEmpresa(decimal idEmpresa, string nombreEmpresa, string rutEmpresa)
+        public bool conectarProcModificarEmpresa(decimal idEmpresa, string nomEmpresa_mod, string runEmpresa_mod, string dirEmpresa_mod, decimal telEmpresa_mod, string corEmpresa_mod)
         {
             comprobarConexion();
 
@@ -436,8 +438,11 @@ namespace BackSafe.AccesoDatos
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("idEmpresa", idEmpresa);
-                variableSQL.Parameters.Add("nombreEmpresa", nombreEmpresa);
-                variableSQL.Parameters.Add("rutEmpresa", rutEmpresa);
+                variableSQL.Parameters.Add("nomEmpresa_mod", nomEmpresa_mod);
+                variableSQL.Parameters.Add("runEmpresa_mod", runEmpresa_mod);
+                variableSQL.Parameters.Add("dirEmpresa_mod", dirEmpresa_mod);
+                variableSQL.Parameters.Add("telEmpresa_mod", telEmpresa_mod);
+                variableSQL.Parameters.Add("corEmpresa_mod", corEmpresa_mod);
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
@@ -581,14 +586,14 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcEliminarEmpresa(decimal run_empresa)
+        public bool conectarProcEliminarEmpresa(decimal idemp)
         {
             comprobarConexion();
             try
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("run_empresa", run_empresa);
+                variableSQL.Parameters.Add("idemp", idemp);
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
                 return true;

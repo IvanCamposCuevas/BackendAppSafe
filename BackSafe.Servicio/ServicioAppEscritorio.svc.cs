@@ -28,14 +28,14 @@ namespace BackSafe.Servicio
             return new TiposEvaluacion().crearTipoEvaluacion(descripcion);
         }
 
-        public bool crearEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        public bool crearEmpresa(string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa)
         {
-            return new Empresas().crearEmpresa(usuarioId, nomEmpresa, runEmpresa);
+            return new Empresas().crearEmpresa(nomEmpresa, runEmpresa, dirEmpresa, telEmpresa, corEmpresa);
         }
 
-        public bool modificarEmpresa(decimal usuarioId, string nomEmpresa, string runEmpresa)
+        public bool modificarEmpresa(decimal idEmpresa, string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa)
         {
-            return new Empresas().modificarEmpresa(usuarioId, nomEmpresa, runEmpresa);
+            return new Empresas().modificarEmpresa(idEmpresa, nomEmpresa, runEmpresa, dirEmpresa, telEmpresa, corEmpresa);
         }
 
         public bool modificarTipoEvaluacion(decimal id_tipoeval, string descripcion)
