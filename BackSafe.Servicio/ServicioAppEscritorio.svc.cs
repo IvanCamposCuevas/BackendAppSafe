@@ -74,7 +74,7 @@ namespace BackSafe.Servicio
             return new PerfilUsuarios().obtenerPerfilUsuario();
         }
 
-        public string login(decimal rut, string contraseña)
+        public string login(string rut, string contraseña)
         {
             return new Usuarios().retornarLogin(rut, contraseña);
         }

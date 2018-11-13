@@ -51,7 +51,7 @@ namespace BackSafe.Servicio
       
 
         [OperationContract]
-        string login(decimal rut, string contraseña);
+        string login(string rut, string contraseña);
 
         [OperationContract]
         bool crearUsuarioMedico(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
