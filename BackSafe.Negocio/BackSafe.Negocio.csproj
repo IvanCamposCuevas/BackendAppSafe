@@ -68,6 +68,8 @@
     <Compile Include="Encriptador.cs" />
     <Compile Include="PerfilUsuarios.cs" />
     <Compile Include="Examen.cs" />
+    <Compile Include="Supervisor.cs" />
+    <Compile Include="Tecnico.cs" />
     <Compile Include="TiposEvaluacion.cs" />
     <Compile Include="VisitaMedica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

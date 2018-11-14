@@ -59,5 +59,20 @@ namespace BackSafe.Servicio
         public DataSet obtenerVisitaPorId(decimal idMedico) => new VisitaMedica().retornarVisitaMedicaPorId(idMedico);
 
         public DataSet obtenerVisitaPorFecha(DateTime fecha) => new VisitaMedica().retornarVisitaMedicaPorFecha(fecha);
+
+        public bool crearPlanCapacitacion(string descripcion, int idEmpresa)
+        {
+           return new Supervisor().crearPlanCapacitacion(descripcion, idEmpresa);
+        }
+
+        public bool crearCapacitacion(string descCapacitacion, decimal minParticipantes, string nomExpositor, string fecInicial, string fecFinal, int idPlanCapac)
+        {
+            return new Supervisor().crearCapacitacion(descCapacitacion, minParticipantes, nomExpositor, fecInicial, fecFinal, idPlanCapac);
+        }
+
+        public bool crerEvaluacion(string fecEval, string descEval, decimal tipoEvalId, decimal empresaId)
+        {
+            return new Tecnico().crearEvaluacion(fecEval, descEval, tipoEvalId, empresaId);
+        }
     }
 }

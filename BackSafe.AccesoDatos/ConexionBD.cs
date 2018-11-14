@@ -70,7 +70,7 @@ namespace BackSafe.AccesoDatos
             set { esSelect = value; }
         }
 
-        private OracleCommand variableSQL { get; set; }
+        public OracleCommand variableSQL { get; set; }
 
         public void abrirConexion()
         {
@@ -98,7 +98,7 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        private void comprobarConexion()
+        public void comprobarConexion()
         {
             if (this.NombreBaseDeDatos == "")
             {

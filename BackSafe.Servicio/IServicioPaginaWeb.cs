@@ -43,6 +43,13 @@ namespace BackSafe.Servicio
 
         [OperationContract]
         DataSet obtenerVisitaPorFecha(DateTime fecha);
+
+        [OperationContract]
+        bool crearPlanCapacitacion(string descripcion, int idEmpresa);
+        [OperationContract]
+        bool crearCapacitacion(string descCapacitacion, decimal minParticipantes, string nomExpositor, string fecInicial, string fecFinal, int idPlanCapac);
+        [OperationContract]
+        bool crerEvaluacion(string fecEval, string descEval, decimal tipoEvalId, decimal empresaId);
         // TODO: agregue aquí sus operaciones de servicio
     }
 
