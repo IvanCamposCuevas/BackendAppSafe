@@ -23,10 +23,10 @@ namespace BackSafe.Negocio
             return Conexion.conectarProcModificarEmpresa(idEmpresa, nomEmpresa, runEmpresa, dirEmpresa, telEmpresa, corEmpresa);
         }
 
-        public Boolean eliminarEmpresa(decimal idEmpresa)
+        public Boolean eliminarEmpresa(string rutempresa)
         {
             Conexion.IntruccioneSQL = "pr_EliminarEmpresa";
-            return Conexion.conectarProcEliminarEmpresa(idEmpresa);
+            return Conexion.conectarProcEliminarEmpresa(rutempresa);
         }
 
         public List<EntEmpresa> obtenerEmpresas()
@@ -36,7 +36,7 @@ namespace BackSafe.Negocio
             List<EntEmpresa> listaEmpresa = new List<EntEmpresa>();
             foreach (DataRow item in Conexion.DbDat.Tables[Conexion.NombreTabla].Rows)
             {
-                listaEmpresa.Add(new EntEmpresa(item["EMPRESA_ID"].ToString(), item["NOMBRE_EMPRESA"].ToString(), item["RUT_EMPRESA"].ToString(), item["DIRECCION"].ToString(), item["TELEFONO"].ToString(), item["CORREO"].ToString()));
+                listaEmpresa.Add(new EntEmpresa(item["ID"].ToString(), item["NOMBRE_EMPRESA"].ToString(), item["RUT_EMPRESA"].ToString(), item["DIRECCION"].ToString(), item["TELEFONO"].ToString(), item["CORREO"].ToString(), item["ESTADO"].ToString()));
             }
             return listaEmpresa;
 

@@ -43,14 +43,14 @@ namespace BackSafe.Servicio
             return new TiposEvaluacion().modificarTipoEvaluacion(id_tipoeval, descripcion);
         }
 
-        public bool eliminarTipoEvaluacion(decimal id_tipoeval)
+        public bool eliminarTipoEvaluacion(string descevaluacion)
         {
-            return new TiposEvaluacion().eliminarTipoEvaluacion(id_tipoeval);
+            return new TiposEvaluacion().eliminarTipoEvaluacion(descevaluacion);
         }
 
-        public bool eliminarEmpresa(decimal run_empresa)
+        public bool eliminarEmpresa(string rutempresa)
         {
-            return new Empresas().eliminarEmpresa(run_empresa);
+            return new Empresas().eliminarEmpresa(rutempresa);
         }
 
 

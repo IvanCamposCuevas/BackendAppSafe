@@ -567,14 +567,14 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcEliminarTipoEvaluacion(decimal idTipoEvaluacion)
+        public bool conectarProcEliminarTipoEvaluacion(string descevaluacion)
         {
             comprobarConexion();
             try
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("id_tipoEvaluacion", idTipoEvaluacion);
+                variableSQL.Parameters.Add("descevaluacion", descevaluacion);
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
                 return true;
@@ -586,14 +586,14 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcEliminarEmpresa(decimal idemp)
+        public bool conectarProcEliminarEmpresa(string rutempresa)
         {
             comprobarConexion();
             try
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("idemp", idemp);
+                variableSQL.Parameters.Add("rutempresa", rutempresa);
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
                 return true;

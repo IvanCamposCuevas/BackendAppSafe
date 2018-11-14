@@ -30,10 +30,10 @@ namespace BackSafe.Servicio
         bool modificarTipoEvaluacion(decimal id_tipoeval, string descripcion);
 
         [OperationContract]
-        bool eliminarTipoEvaluacion(decimal id_tipoeval);
+        bool eliminarTipoEvaluacion(string descevaluacion);
 
         [OperationContract]
-        bool eliminarEmpresa(decimal idEmpresa);
+        bool eliminarEmpresa(string rutempresa);
 
         [OperationContract]
         Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,

@@ -18,7 +18,7 @@ namespace BackSafe.Negocio
             List<EntTipoEvaluacion> listaTipoEvaluacion = new List<EntTipoEvaluacion>();
             foreach (DataRow item in Conexion.DbDat.Tables[Conexion.NombreTabla].Rows)
             {
-                listaTipoEvaluacion.Add(new EntTipoEvaluacion(item["id"].ToString(), item["descripcion"].ToString()));
+                listaTipoEvaluacion.Add(new EntTipoEvaluacion(item["id"].ToString(), item["descripcion"].ToString(), item["estado"].ToString()));
             }
             return listaTipoEvaluacion;
         }
@@ -35,10 +35,10 @@ namespace BackSafe.Negocio
             return Conexion.conectarProcModificarTipoEval(id_tipoeval, descripcion);
         }
 
-        public Boolean eliminarTipoEvaluacion(decimal id_tipoeval)
+        public Boolean eliminarTipoEvaluacion(string descevaluacion)
         {
             Conexion.IntruccioneSQL = "pr_EliminarTipoEvaluacion";
-            return Conexion.conectarProcEliminarTipoEvaluacion(id_tipoeval);
+            return Conexion.conectarProcEliminarTipoEvaluacion(descevaluacion);
         }
     }
 }

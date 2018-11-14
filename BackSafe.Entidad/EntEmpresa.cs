@@ -14,12 +14,13 @@ namespace BackSafe.Entidad
         public string dirEmpresa { get; set; }
         public string telEmpresa { get; set; }
         public string corEmpresa { get; set; }
+        public string estEmpresa { get; set; }
 
         public EntEmpresa()
         {
         }
 
-        public EntEmpresa(string idEmpresa, string nomEmpresa, string runEmpresa, string dirEmpresa, string telEmpresa, string corEmpresa)
+        public EntEmpresa(string idEmpresa, string nomEmpresa, string runEmpresa, string dirEmpresa, string telEmpresa, string corEmpresa, string estEmpresa)
         {
             this.idEmpresa = idEmpresa;
             this.nomEmpresa = nomEmpresa;
@@ -27,6 +28,7 @@ namespace BackSafe.Entidad
             this.dirEmpresa = dirEmpresa;
             this.telEmpresa = telEmpresa;
             this.corEmpresa = corEmpresa;
+            this.estEmpresa = estEmpresa;
         }
 
     }
