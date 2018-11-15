@@ -10,15 +10,17 @@ public class EntTipoEvaluacion
     {
         public string id_tipoeval { get; set; }
         public string descripcion { get; set; }
+        public string estado { get; set; }
 
         public EntTipoEvaluacion()
         {
         }
 
-        public EntTipoEvaluacion(string id_tipoeval, string descripcion)
+        public EntTipoEvaluacion(string id_tipoeval, string descripcion, string estado)
         {
             this.id_tipoeval = id_tipoeval;
             this.descripcion = descripcion;
+            this.estado = estado;
         }
 
 

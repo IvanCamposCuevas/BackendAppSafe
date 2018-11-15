@@ -13,9 +13,9 @@ namespace BackSafe.Servicio
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione ServicioAppEscritorio.svc o ServicioAppEscritorio.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class ServicioAppEscritorio : IServicioAppEscritorio
     {
-        public bool crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil)
+        public bool crearUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa)
         {
-            return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
+            return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa);
         }
 
         public bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil)
@@ -43,14 +43,14 @@ namespace BackSafe.Servicio
             return new TiposEvaluacion().modificarTipoEvaluacion(id_tipoeval, descripcion);
         }
 
-        public bool eliminarTipoEvaluacion(decimal id_tipoeval)
+        public bool eliminarTipoEvaluacion(string descevaluacion)
         {
-            return new TiposEvaluacion().eliminarTipoEvaluacion(id_tipoeval);
+            return new TiposEvaluacion().eliminarTipoEvaluacion(descevaluacion);
         }
 
-        public bool eliminarEmpresa(decimal run_empresa)
+        public bool eliminarEmpresa(string rutempresa)
         {
-            return new Empresas().eliminarEmpresa(run_empresa);
+            return new Empresas().eliminarEmpresa(rutempresa);
         }
 
 
@@ -79,14 +79,14 @@ namespace BackSafe.Servicio
             return new Usuarios().retornarLogin(rut, contraseña);
         }
 
-        public bool crearUsuarioMedico(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil, string disponibilidad, string mailPrivado, decimal telefonoPriv)
+        public bool crearUsuarioMedico(string rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string disponibilidad, string mailPrivado, decimal telefonoPriv)
         {
-            return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, disponibilidad, mailPrivado, telefonoPriv);
+            return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa, disponibilidad, mailPrivado, telefonoPriv);
         }
 
-        public bool crearUsuarioTrabajador(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil, string mailPrivado, decimal telPrivado, string estadoRiesgo, decimal contratoId, decimal empresaId)
+        public bool crearUsuarioTrabajador(string rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string mailPrivado, decimal telPrivado, string estadoRiesgo, decimal contratoId)
         {
-            return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, mailPrivado, telPrivado, estadoRiesgo, contratoId, empresaId);
+            return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa, mailPrivado, telPrivado, estadoRiesgo, contratoId);
         }
     }
 }

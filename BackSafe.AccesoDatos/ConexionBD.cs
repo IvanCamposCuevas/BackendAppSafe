@@ -264,8 +264,8 @@ namespace BackSafe.AccesoDatos
         }
 
 
-        public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, 
-                                            string direccion, decimal telefono, string email, decimal idPerfil)
+        public bool conectarProcCrearUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno, 
+                                            string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa)
         {
             comprobarConexion();
 
@@ -282,6 +282,7 @@ namespace BackSafe.AccesoDatos
                 variableSQL.Parameters.Add("telefono", telefono);
                 variableSQL.Parameters.Add("email", email);
                 variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+                variableSQL.Parameters.Add("empresaID", idEmpresa);
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
@@ -306,12 +307,13 @@ namespace BackSafe.AccesoDatos
         /// <param name="telefono"></param>
         /// <param name="email"></param>
         /// <param name="idPerfil"></param>
+        /// <param name="idEmpresa"></param>
         /// <param name="disponibilidad"></param>
         /// <param name="mailPrivado"></param>
         /// <param name="telefonoPriv"></param>
         /// <returns></returns>
-        public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, decimal telefono, string email, decimal idPerfil, string disponibilidad, string mailPrivado, decimal telefonoPriv)
+        public bool conectarProcCrearUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string disponibilidad, string mailPrivado, decimal telefonoPriv)
         {
             comprobarConexion();
 
@@ -328,6 +330,7 @@ namespace BackSafe.AccesoDatos
                 variableSQL.Parameters.Add("telefono", telefono);
                 variableSQL.Parameters.Add("email", email);
                 variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+                variableSQL.Parameters.Add("empresaID", idEmpresa);
                 variableSQL.Parameters.Add("disponibilidad", disponibilidad);
                 variableSQL.Parameters.Add("mail_privado", mailPrivado);
                 variableSQL.Parameters.Add("tel_privado", telefonoPriv);
@@ -355,15 +358,15 @@ namespace BackSafe.AccesoDatos
         /// <param name="telefono"></param>
         /// <param name="email"></param>
         /// <param name="idPerfil"></param>
+        /// <param name="idEmpresa"></param>
         /// <param name="mailPrivado"></param>
         /// <param name="telPrivado"></param>
         /// <param name="estadoRiesgo"></param>
         /// <param name="contratoId"></param>
-        /// <param name="empresaId"></param>
         /// <returns></returns>
-        public bool conectarProcCrearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, decimal telefono, string email, decimal idPerfil, string mailPrivado, decimal telPrivado,
-                                    string estadoRiesgo, decimal contratoId, decimal empresaId)
+        public bool conectarProcCrearUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string mailPrivado, decimal telPrivado,
+                                    string estadoRiesgo, decimal contratoId)
         {
             comprobarConexion();
 
@@ -380,11 +383,11 @@ namespace BackSafe.AccesoDatos
                 variableSQL.Parameters.Add("telefono", telefono);
                 variableSQL.Parameters.Add("email", email);
                 variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+                variableSQL.Parameters.Add("empresaID", idEmpresa);
                 variableSQL.Parameters.Add("mailprivado", mailPrivado);
                 variableSQL.Parameters.Add("telprivado", telPrivado);
                 variableSQL.Parameters.Add("estriesgo",estadoRiesgo);
                 variableSQL.Parameters.Add("contratoid", contratoId);
-                variableSQL.Parameters.Add("empresaid", empresaId);
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
@@ -396,14 +399,6 @@ namespace BackSafe.AccesoDatos
                 throw;
             }
         }
-
-        /// <summary>
-        /// Accede al procedimiento para crear una Empresa
-        /// </summary>
-        /// <param name="usuarioId"></param>
-        /// <param name="nomEmpresa"></param>
-        /// <param name="runEmpresa"></param>
-        /// <returns></returns>
         public bool conectarProcCrearEmpresa(string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa)
         {
             comprobarConexion();
@@ -567,14 +562,14 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcEliminarTipoEvaluacion(decimal idTipoEvaluacion)
+        public bool conectarProcEliminarTipoEvaluacion(string descevaluacion)
         {
             comprobarConexion();
             try
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("id_tipoEvaluacion", idTipoEvaluacion);
+                variableSQL.Parameters.Add("descevaluacion", descevaluacion);
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
                 return true;
@@ -586,14 +581,14 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcEliminarEmpresa(decimal idemp)
+        public bool conectarProcEliminarEmpresa(string rutempresa)
         {
             comprobarConexion();
             try
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("idemp", idemp);
+                variableSQL.Parameters.Add("rutempresa", rutempresa);
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
                 return true;
