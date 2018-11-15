@@ -18,7 +18,9 @@ namespace BackSafe.Entidad
         public string telefono { get; set; }
         public string email { get; set; }
         public string fecRegistro { get; set; }
+        public string estado { get; set; }
         public string idPerfil { get; set; }
+        public string idEmpresa { get; set; }
 
         public EntUsuario()
         {
@@ -26,7 +28,7 @@ namespace BackSafe.Entidad
         }
 
         public EntUsuario(string idUsuario, string rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, string telefono, string email, string fecRegistro, string idPerfil)
+                                    string direccion, string telefono, string email, string fecRegistro, string estado, string idPerfil, string idEmpresa)
         {
             this.idUsuario = idUsuario;
             this.rut = rut;
@@ -38,7 +40,9 @@ namespace BackSafe.Entidad
             this.telefono = telefono;
             this.email = email;
             this.fecRegistro = fecRegistro;
+            this.estado = estado;
             this.idPerfil = idPerfil;
+            this.idEmpresa = idEmpresa;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace BackSafe.Negocio
             List<EntUsuario> listaUsuarios = new List<EntUsuario>();
             foreach (DataRow item in Conexion.DbDat.Tables[Conexion.NombreTabla].Rows)
             {
-                listaUsuarios.Add(new EntUsuario(item["id"].ToString(), item["rut_usuario"].ToString(), item["contrasena"].ToString(), item["nombre"].ToString(), item["ape_paterno"].ToString(), item["ape_materno"].ToString(), item["direccion"].ToString(), item["telefono"].ToString(), item["email"].ToString(), item["registro"].ToString(), item["perfil_usuario_id"].ToString()));
+                listaUsuarios.Add(new EntUsuario(item["id"].ToString(), item["rut_usuario"].ToString(), item["contrasena"].ToString(), item["nombre"].ToString(), item["ape_paterno"].ToString(), item["ape_materno"].ToString(), item["direccion"].ToString(), item["telefono"].ToString(), item["email"].ToString(), item["registro"].ToString(), item["estado"].ToString(), item["perfil_usuario_id"].ToString(), item["empresa_id"].ToString()));
             }
             return listaUsuarios;
         }
@@ -40,13 +40,14 @@ namespace BackSafe.Negocio
         /// <param name="telefono"></param>
         /// <param name="email"></param>
         /// <param name="idPerfil"></param>
+        /// <param name="idEmpresa"></param>
         /// <returns></returns>
-        public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, decimal telefono, string email, decimal idPerfil)
+        public Boolean crearUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa)
         {
             string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "pr_CrearUsuario";
-            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
+            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa);
         }
 
         /// <summary>
@@ -61,16 +62,17 @@ namespace BackSafe.Negocio
         /// <param name="telefono"></param>
         /// <param name="email"></param>
         /// <param name="idPerfil"></param>
+        /// <param name="idEmpresa"></param>
         /// <param name="disponibilidad"></param>
         /// <param name="mailPrivado"></param>
         /// <param name="telefonoPriv"></param>
         /// <returns></returns>
-        public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, decimal telefono, string email, decimal idPerfil, string disponibilidad, string mailPrivado, decimal telefonoPriv)
+        public Boolean crearUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string disponibilidad, string mailPrivado, decimal telefonoPriv)
         {
             string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "pr_CrearUsuarioMedico";
-            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, disponibilidad, mailPrivado, telefonoPriv);
+            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa, disponibilidad, mailPrivado, telefonoPriv);
         }
 
         /// <summary>
@@ -85,20 +87,20 @@ namespace BackSafe.Negocio
         /// <param name="telefono"></param>
         /// <param name="email"></param>
         /// <param name="idPerfil"></param>
+        /// <param name="idEmpresa"></param>
         /// <param name="mailPrivado"></param>
         /// <param name="telPrivado"></param>
         /// <param name="estadoRiesgo"></param>
         /// <param name="contratoId"></param>
-        /// <param name="empresaId"></param>
         /// <returns></returns>
-        public Boolean crearUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, decimal telefono, string email, decimal idPerfil, string mailPrivado, decimal telPrivado,
-                                    string estadoRiesgo, decimal contratoId, decimal empresaId)
+        public Boolean crearUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string mailPrivado, decimal telPrivado,
+                                    string estadoRiesgo, decimal contratoId)
         {
             string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "pr_CrearUsuarioTrabajador";
 
-            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, mailPrivado, telPrivado, estadoRiesgo, contratoId, empresaId);
+            return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa, mailPrivado, telPrivado, estadoRiesgo, contratoId);
         }
 
         public Boolean modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
