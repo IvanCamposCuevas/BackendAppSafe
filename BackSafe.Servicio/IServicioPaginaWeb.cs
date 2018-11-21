@@ -24,7 +24,7 @@ namespace BackSafe.Servicio
 
 
         [OperationContract]
-        bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico);
+        bool crearVisitaMedica(string fecVisita, decimal idEmpresa, decimal idMedico);
 
         [OperationContract]
         string login(string rut, string contraseña);
@@ -43,13 +43,20 @@ namespace BackSafe.Servicio
 
         [OperationContract]
         DataSet obtenerVisitaPorFecha(DateTime fecha);
-
         [OperationContract]
         bool crearPlanCapacitacion(string descripcion, int idEmpresa);
         [OperationContract]
         bool crearCapacitacion(string descCapacitacion, decimal minParticipantes, string nomExpositor, string fecInicial, string fecFinal, int idPlanCapac);
         [OperationContract]
-        bool crerEvaluacion(string fecEval, string descEval, decimal tipoEvalId, decimal empresaId);
+        bool crearEvaluacion(string fecEval, string descEval, decimal tipoEvalId, decimal empresaId, decimal usuarioId);
+        [OperationContract]
+        DataSet retornarTipoEvaluacion();
+        [OperationContract]
+        DataSet retornarMedicos();
+        [OperationContract]
+        DataSet retornarEmpresas();
+        [OperationContract]
+        DataSet retornarEvaluacionesPorTecnico();
         // TODO: agregue aquí sus operaciones de servicio
     }
 

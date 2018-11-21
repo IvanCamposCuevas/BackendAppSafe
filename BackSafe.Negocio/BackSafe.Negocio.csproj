@@ -66,6 +66,7 @@
     <Compile Include="AccesoConexion.cs" />
     <Compile Include="Empresas.cs" />
     <Compile Include="Encriptador.cs" />
+    <Compile Include="Medico.cs" />
     <Compile Include="PerfilUsuarios.cs" />
     <Compile Include="Examen.cs" />
     <Compile Include="Supervisor.cs" />
@@ -84,6 +85,9 @@
       <Project>{aa8f5d76-2f0b-42f2-b239-b7978bf79c5e}</Project>
       <Name>BackSafe.Entidad</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

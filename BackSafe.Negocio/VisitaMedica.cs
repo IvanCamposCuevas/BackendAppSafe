@@ -8,10 +8,10 @@ namespace BackSafe.Negocio
 {
     public class VisitaMedica : AccesoConexion
     {
-        public bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico)
+        public bool crearVisitaMedica(string fecVisita, decimal idEmpresa, decimal idMedico)
         {
-            Conexion.IntruccioneSQL = "por_crearvisita";
-            return Conexion.conectarProcCrearVisita(fecVisita, idContrato, idMedico);
+            Conexion.IntruccioneSQL = "pr_crearvisita";
+            return Conexion.conectarProcCrearVisita(fecVisita, idEmpresa, idMedico);
         }
 
         public DataSet retornarVisitaMedicaPorId(decimal idMedico)

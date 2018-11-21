@@ -23,6 +23,12 @@ namespace BackSafe.Negocio
             return listaTipoEvaluacion;
         }
 
+        public DataSet obtenerTipoEvaluacionDs()
+        {
+            Conexion.IntruccioneSQL = "fn_VerTipoDeEvaluacion";
+            Conexion.retornarDatosFunciones();
+            return Conexion.DbDat;
+        }
         public Boolean crearTipoEvaluacion(string descripcion)
         {
             Conexion.IntruccioneSQL = "pr_CrearTipoDeEvaluacion";

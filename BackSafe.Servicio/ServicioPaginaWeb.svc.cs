@@ -34,9 +34,9 @@ namespace BackSafe.Servicio
             return composite;
         }
 
-        public bool crearVisitaMedica(DateTime fecVisita, decimal idContrato, decimal idMedico)
+        public bool crearVisitaMedica(string fecVisita, decimal idEmpresa, decimal idMedico)
         {
-            return new VisitaMedica().crearVisitaMedica(fecVisita, idContrato, idMedico);
+            return new VisitaMedica().crearVisitaMedica(fecVisita, idEmpresa, idMedico);
         }
 
         public string login(string rut, string contraseña)
@@ -70,9 +70,29 @@ namespace BackSafe.Servicio
             return new Supervisor().crearCapacitacion(descCapacitacion, minParticipantes, nomExpositor, fecInicial, fecFinal, idPlanCapac);
         }
 
-        public bool crerEvaluacion(string fecEval, string descEval, decimal tipoEvalId, decimal empresaId)
+        public bool crearEvaluacion(string fecEval, string descEval, decimal tipoEvalId, decimal empresaId, decimal usuarioId)
         {
-            return new Tecnico().crearEvaluacion(fecEval, descEval, tipoEvalId, empresaId);
+            return new Tecnico().crearEvaluacion(fecEval, descEval, tipoEvalId, empresaId, usuarioId);
+        }
+
+        public DataSet retornarTipoEvaluacion()
+        {
+            return new TiposEvaluacion().obtenerTipoEvaluacionDs();
+        }
+
+        public DataSet retornarMedicos()
+        {
+            return new Medico().obtenerMedico();
+        }
+
+        public DataSet retornarEmpresas()
+        {
+            return new Empresas().obtenerEmpresasDs();
+        }
+
+        public DataSet retornarEvaluacionesPorTecnico()
+        {
+            return new Tecnico().obtenerEvaluacionTecnico();
         }
     }
 }

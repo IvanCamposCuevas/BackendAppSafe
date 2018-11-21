@@ -322,7 +322,7 @@ namespace BackSafe.AccesoDatos
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("rut", rut);
-                variableSQL.Parameters.Add("contraseña", contraseña);
+                variableSQL.Parameters.Add("contrasena", contraseña);
                 variableSQL.Parameters.Add("nombre", nombre);
                 variableSQL.Parameters.Add("ape_paterno", appaterno);
                 variableSQL.Parameters.Add("ape_materno", apmaterno);
@@ -330,10 +330,10 @@ namespace BackSafe.AccesoDatos
                 variableSQL.Parameters.Add("telefono", telefono);
                 variableSQL.Parameters.Add("email", email);
                 variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
-                variableSQL.Parameters.Add("empresaID", idEmpresa);
                 variableSQL.Parameters.Add("disponibilidad", disponibilidad);
                 variableSQL.Parameters.Add("mail_privado", mailPrivado);
                 variableSQL.Parameters.Add("tel_privado", telefonoPriv);
+                variableSQL.Parameters.Add("empresaID", idEmpresa);
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
@@ -480,15 +480,15 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcCrearVisita(DateTime fecVisita, decimal idContrato, decimal idMedico)
+        public bool conectarProcCrearVisita(string fecVisita, decimal idEmpresa, decimal idMedico)
         {
             comprobarConexion();
             try
             {
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
-                variableSQL.Parameters.Add("fec_visita", fecVisita);
-                variableSQL.Parameters.Add("id_contrato", idContrato);
+                variableSQL.Parameters.Add("fec_visita", OracleDbType.Date, fecVisita, ParameterDirection.Input);
+                variableSQL.Parameters.Add("id_contrato", idEmpresa);
                 variableSQL.Parameters.Add("id_medico", idMedico);
 
                 variableSQL.ExecuteNonQuery();

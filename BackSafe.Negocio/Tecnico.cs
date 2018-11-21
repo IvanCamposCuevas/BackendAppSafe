@@ -10,9 +10,9 @@ namespace BackSafe.Negocio
 {
     public class Tecnico : AccesoConexion
     {
-        public bool crearEvaluacion(string fecEval, string descEval, decimal tipoEvalId, decimal empresaId)
+        public bool crearEvaluacion(string fecEval, string descEval, decimal tipoEvalId, decimal empresaId, decimal usuarioId)
         {
-            Conexion.abrirConexion();
+            Conexion.comprobarConexion();
             try
             {
                 Conexion.variableSQL = new OracleCommand("pr_CrearEvaluacion", Conexion.DbConnection);
@@ -21,11 +21,27 @@ namespace BackSafe.Negocio
                 Conexion.variableSQL.Parameters.Add("descEval", descEval);
                 Conexion.variableSQL.Parameters.Add("tipoEvalId", tipoEvalId);
                 Conexion.variableSQL.Parameters.Add("empresaId", empresaId);
+                Conexion.variableSQL.Parameters.Add("usuarioId", usuarioId);
                 Conexion.variableSQL.ExecuteNonQuery();
                 Conexion.cerrarConexion();
                 return true;
             }
             catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public DataSet obtenerEvaluacionTecnico()
+        {
+            try
+            {
+                Conexion.IntruccioneSQL = "fn_verevaluaciones";
+                Conexion.retornarDatosFunciones();
+                return Conexion.DbDat;
+            }
+            catch (Exception)
             {
 
                 throw;

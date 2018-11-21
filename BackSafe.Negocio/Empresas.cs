@@ -42,5 +42,12 @@ namespace BackSafe.Negocio
 
             
         }
+
+        public DataSet obtenerEmpresasDs()
+        {
+            Conexion.IntruccioneSQL = "FN_VEREMPRESA";
+            Conexion.retornarDatosFunciones();
+            return Conexion.DbDat;
+        }
     }
 }
