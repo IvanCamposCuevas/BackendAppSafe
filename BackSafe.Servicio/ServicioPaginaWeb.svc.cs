@@ -60,9 +60,9 @@ namespace BackSafe.Servicio
 
         public DataSet obtenerVisitaPorFecha(DateTime fecha) => new VisitaMedica().retornarVisitaMedicaPorFecha(fecha);
 
-        public bool crearPlanCapacitacion(string descripcion, int idEmpresa)
+        public bool crearPlanCapacitacion(string descripcion, int idEmpresa, string fechaPlan)
         {
-           return new Supervisor().crearPlanCapacitacion(descripcion, idEmpresa);
+           return new Supervisor().crearPlanCapacitacion(descripcion, idEmpresa, fechaPlan);
         }
 
         public bool crearCapacitacion(string descCapacitacion, decimal minParticipantes, string nomExpositor, string fecInicial, string fecFinal, int idPlanCapac)
