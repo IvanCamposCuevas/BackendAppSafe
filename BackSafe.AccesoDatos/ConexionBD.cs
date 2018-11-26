@@ -299,7 +299,7 @@ namespace BackSafe.AccesoDatos
         /// Metodo para conectar procedimiento que crea un usuario y un medico
         /// </summary>
         /// <param name="rut"></param>
-        /// <param name="contraseña"></param>
+        /// <param name="contrasena"></param>
         /// <param name="nombre"></param>
         /// <param name="appaterno"></param>
         /// <param name="apmaterno"></param>
@@ -330,10 +330,11 @@ namespace BackSafe.AccesoDatos
                 variableSQL.Parameters.Add("telefono", telefono);
                 variableSQL.Parameters.Add("email", email);
                 variableSQL.Parameters.Add("id_perfil_usuario", idPerfil);
+                variableSQL.Parameters.Add("empresaID", idEmpresa);
                 variableSQL.Parameters.Add("disponibilidad", disponibilidad);
                 variableSQL.Parameters.Add("mail_privado", mailPrivado);
                 variableSQL.Parameters.Add("tel_privado", telefonoPriv);
-                variableSQL.Parameters.Add("empresaID", idEmpresa);
+                
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
@@ -451,7 +452,7 @@ namespace BackSafe.AccesoDatos
         }
 
         public bool conectarProcModificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, decimal telefono, string email, decimal idPerfil)
+                                    string direccion, decimal telefono, string email)
         {
             comprobarConexion();
 
@@ -467,7 +468,6 @@ namespace BackSafe.AccesoDatos
                 variableSQL.Parameters.Add("mdireccion", direccion);
                 variableSQL.Parameters.Add("mtelefono", telefono);
                 variableSQL.Parameters.Add("memail", email);
-                variableSQL.Parameters.Add("mid_perfil_usuario", idPerfil);
 
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
@@ -589,6 +589,25 @@ namespace BackSafe.AccesoDatos
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("rutempresa", rutempresa);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (OracleException)
+            {
+
+                throw;
+            }
+        }
+
+        public bool conectarProcEliminarUsuario(string rut)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("rutUsuario", rut);
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
                 return true;
