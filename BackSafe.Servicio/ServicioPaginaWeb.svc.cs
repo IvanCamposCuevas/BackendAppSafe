@@ -39,7 +39,7 @@ namespace BackSafe.Servicio
             return new VisitaMedica().crearVisitaMedica(fecVisita, idEmpresa, idMedico);
         }
 
-        public string login(string rut, string contraseña)
+        public DataSet login(string rut, string contraseña)
         {
             return new Usuarios().retornarLogin(rut, contraseña);
         }
@@ -93,6 +93,16 @@ namespace BackSafe.Servicio
         public DataSet retornarEvaluacionesPorTecnico()
         {
             return new Tecnico().obtenerEvaluacionTecnico();
+        }
+
+        public DataSet retornarEvaluacionesPorIngeniero()
+        {
+            return new Ingeniero().obtenerEvaluacionesIngeniero();
+        }
+
+        public bool crearInformeIngeniero(string recomendacion, decimal usuarioId, decimal evalId)
+        {
+            return new Ingeniero().crearInformeEvaluacion(recomendacion, usuarioId, evalId);
         }
     }
 }

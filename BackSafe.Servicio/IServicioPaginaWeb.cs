@@ -27,7 +27,7 @@ namespace BackSafe.Servicio
         bool crearVisitaMedica(string fecVisita, decimal idEmpresa, decimal idMedico);
 
         [OperationContract]
-        string login(string rut, string contraseña);
+        DataSet login(string rut, string contraseña);
 
         [OperationContract]
         DataSet obtenerContratos();
@@ -57,6 +57,10 @@ namespace BackSafe.Servicio
         DataSet retornarEmpresas();
         [OperationContract]
         DataSet retornarEvaluacionesPorTecnico();
+        [OperationContract]
+        DataSet retornarEvaluacionesPorIngeniero();
+        [OperationContract]
+        bool crearInformeIngeniero(string recomendacion, decimal usuarioId, decimal evalId);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

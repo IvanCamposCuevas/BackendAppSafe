@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using BackSafe.Entidad;
 using BackSafe.Negocio;
+using System.Data;
 
 namespace BackSafe.Servicio
 {
@@ -74,9 +75,15 @@ namespace BackSafe.Servicio
             return new PerfilUsuarios().obtenerPerfilUsuario();
         }
 
-        public string login(string rut, string contraseña)
+        public EntUsuario login(string rut, string contraseña)
         {
-            return new Usuarios().retornarLogin(rut, contraseña);
+            EntUsuario entus = null;
+            foreach (DataRow item in new Usuarios().retornarLogin(rut, contraseña).Tables["clientes"].Rows)
+            {
+                entus = new EntUsuario(item["id"].ToString(), item["Rut Usuario"].ToString(), null, item["Nombre"].ToString(), item["Apellido Paterno"].ToString(), item["Apellido Materno"].ToString(), item["Direccion"].ToString(), null, item["Email"].ToString(), null, null, item["ID Perfil"].ToString(), item["ID Empresa"].ToString());
+            }
+
+            return entus;
         }
 
         public bool crearUsuarioMedico(string rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string disponibilidad, string mailPrivado, decimal telefonoPriv)
@@ -87,6 +94,11 @@ namespace BackSafe.Servicio
         public bool crearUsuarioTrabajador(string rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string mailPrivado, decimal telPrivado, string estadoRiesgo, decimal contratoId)
         {
             return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa, mailPrivado, telPrivado, estadoRiesgo, contratoId);
+        }
+
+        public string descContraseña(string rut)
+        {
+            return new Usuarios().descContraseña(rut);
         }
     }
 }

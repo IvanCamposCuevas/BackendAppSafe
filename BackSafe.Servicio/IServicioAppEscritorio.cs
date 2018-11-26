@@ -51,7 +51,7 @@ namespace BackSafe.Servicio
       
 
         [OperationContract]
-        string login(string rut, string contraseña);
+        EntUsuario login(string rut, string contraseña);
 
         [OperationContract]
         bool crearUsuarioMedico(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
@@ -60,5 +60,8 @@ namespace BackSafe.Servicio
         bool crearUsuarioTrabajador(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                     string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa, string mailPrivado, decimal telPrivado,
                                     string estadoRiesgo, decimal contratoId);
+
+        [OperationContract]
+        string descContraseña(string rut);
     }
 }

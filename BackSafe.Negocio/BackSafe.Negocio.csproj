@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ingeniero.cs" />
     <Compile Include="Contrato.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="AccesoConexion.cs" />
@@ -85,9 +86,6 @@
       <Project>{aa8f5d76-2f0b-42f2-b239-b7978bf79c5e}</Project>
       <Name>BackSafe.Entidad</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

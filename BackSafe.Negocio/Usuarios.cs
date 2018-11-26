@@ -111,11 +111,22 @@ namespace BackSafe.Negocio
             return Conexion.conectarProcModificarUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
         }
 
-        public string retornarLogin(string rut, string contraseña)
+        public DataSet retornarLogin(string rut, string contraseña)
         {
             string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "fn_login";
-            return Conexion.retornarConfirmacionLogin(rut, contrasEncript);
+            Conexion.retornarConfirmacionLogin(rut, contrasEncript);
+            return Conexion.DbDat;
+        }
+
+        public string descContraseña (string rut)
+        {
+            Conexion.IntruccioneSQL = string.Format("SELECT contrasena FROM usuario WHERE rut_usuario = '{0}'", rut);
+            Conexion.EsSelect = true;
+            Conexion.conectar();
+
+            string cont = Conexion.DbDat.Tables[Conexion.NombreTabla].Rows[0]["contrasena"].ToString();
+            return Encriptador.Decrypt(cont);
         }
     }
 }
