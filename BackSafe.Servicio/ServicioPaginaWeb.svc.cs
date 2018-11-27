@@ -104,5 +104,10 @@ namespace BackSafe.Servicio
         {
             return new Ingeniero().crearInformeEvaluacion(recomendacion, usuarioId, evalId);
         }
+
+        public DataSet retornarInformes()
+        {
+            return new Supervisor().retornarInformesEvaluaciones();
+        }
     }
 }

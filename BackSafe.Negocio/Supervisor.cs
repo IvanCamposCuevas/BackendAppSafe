@@ -54,5 +54,20 @@ namespace BackSafe.Negocio
                 throw;
             }
         }
+
+        public DataSet retornarInformesEvaluaciones()
+        {
+            try
+            {
+                Conexion.IntruccioneSQL = "fn_VerInformes";
+                Conexion.retornarDatosFunciones();
+                return Conexion.DbDat;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

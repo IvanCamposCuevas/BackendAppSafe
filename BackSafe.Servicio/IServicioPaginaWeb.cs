@@ -61,6 +61,8 @@ namespace BackSafe.Servicio
         DataSet retornarEvaluacionesPorIngeniero();
         [OperationContract]
         bool crearInformeIngeniero(string recomendacion, decimal usuarioId, decimal evalId);
+        [OperationContract]
+        DataSet retornarInformes();
         // TODO: agregue aquí sus operaciones de servicio
     }
 
