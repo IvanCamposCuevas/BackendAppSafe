@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoMedico.cs" />
     <Compile Include="Ingeniero.cs" />
     <Compile Include="Contrato.cs" />
     <Compile Include="Curso.cs" />
