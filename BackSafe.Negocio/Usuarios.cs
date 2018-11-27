@@ -103,7 +103,7 @@ namespace BackSafe.Negocio
             return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa, mailPrivado, telPrivado, estadoRiesgo, contratoId);
         }
 
-        public Boolean modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+        public Boolean modificarUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                     string direccion, decimal telefono, string email)
         {
             string contrasEncript = Encriptador.Encrypt(contraseña);

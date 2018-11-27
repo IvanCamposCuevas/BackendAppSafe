@@ -274,7 +274,7 @@ namespace BackSafe.AccesoDatos
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("rut",rut);
-                variableSQL.Parameters.Add("contraseña", contraseña);
+                variableSQL.Parameters.Add("contrasena", contraseña);
                 variableSQL.Parameters.Add("nombre", nombre);
                 variableSQL.Parameters.Add("ape_paterno", appaterno);
                 variableSQL.Parameters.Add("ape_materno", apmaterno);
@@ -451,7 +451,7 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcModificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+        public bool conectarProcModificarUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                     string direccion, decimal telefono, string email)
         {
             comprobarConexion();

@@ -53,7 +53,7 @@ namespace BackSafe.Servicio
         bool modificarEmpresa(decimal idEmpresa, string nomEmpresa, string runEmpresa, string dirEmpresa, decimal telEmpresa, string corEmpresa);
 
         [OperationContract]
-        bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
+        bool modificarUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
                                             string direccion, decimal telefono, string email);
       
 

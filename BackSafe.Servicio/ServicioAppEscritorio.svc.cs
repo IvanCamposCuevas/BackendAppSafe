@@ -19,7 +19,7 @@ namespace BackSafe.Servicio
             return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa);
         }
 
-        public bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email)
+        public bool modificarUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email)
         {
             return new Usuarios().modificarUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email);
         }
