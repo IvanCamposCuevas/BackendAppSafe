@@ -19,9 +19,9 @@ namespace BackSafe.Servicio
             return new Usuarios().crearUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa);
         }
 
-        public bool modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email, decimal idPerfil)
+        public bool modificarUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno, string direccion, decimal telefono, string email)
         {
-            return new Usuarios().modificarUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
+            return new Usuarios().modificarUsuario(rut, contraseña, nombre, appaterno, apmaterno, direccion, telefono, email);
         }
 
         public bool crearTipoEvaluacion(string descripcion)
@@ -54,6 +54,11 @@ namespace BackSafe.Servicio
             return new Empresas().eliminarEmpresa(rutempresa);
         }
 
+        public bool eliminarUsuario(string rut)
+        {
+            return new Usuarios().eliminarUsuario(rut);
+        }
+
 
         public List<EntUsuario> retornarUsuarios()
         {
@@ -73,6 +78,11 @@ namespace BackSafe.Servicio
         public List<EntPerfilUsuario> retornarPerfilUsuarios()
         {
             return new PerfilUsuarios().obtenerPerfilUsuario();
+        }
+
+        public List<EntContrato> retornarContratos()
+        {
+            return new Contrato().obtenerContratos();
         }
 
         public EntUsuario login(string rut, string contraseña)

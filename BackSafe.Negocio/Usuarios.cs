@@ -103,12 +103,18 @@ namespace BackSafe.Negocio
             return Conexion.conectarProcCrearUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil, idEmpresa, mailPrivado, telPrivado, estadoRiesgo, contratoId);
         }
 
-        public Boolean modificarUsuario(decimal rut, string contraseña, string nombre, string appaterno, string apmaterno,
-                                    string direccion, decimal telefono, string email, decimal idPerfil)
+        public Boolean modificarUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno,
+                                    string direccion, decimal telefono, string email)
         {
             string contrasEncript = Encriptador.Encrypt(contraseña);
             Conexion.IntruccioneSQL = "pr_ModificarUsuario";
-            return Conexion.conectarProcModificarUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email, idPerfil);
+            return Conexion.conectarProcModificarUsuario(rut, contrasEncript, nombre, appaterno, apmaterno, direccion, telefono, email);
+        }
+
+        public Boolean eliminarUsuario(string rut)
+        {
+            Conexion.IntruccioneSQL = "pr_EliminarUsuario";
+            return Conexion.conectarProcEliminarEmpresa(rut);
         }
 
         public DataSet retornarLogin(string rut, string contraseña)
