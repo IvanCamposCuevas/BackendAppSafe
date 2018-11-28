@@ -376,7 +376,7 @@ namespace BackSafe.AccesoDatos
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("rut", rut);
-                variableSQL.Parameters.Add("contraseña", contraseña);
+                variableSQL.Parameters.Add("contrasena", contraseña);
                 variableSQL.Parameters.Add("nombre", nombre);
                 variableSQL.Parameters.Add("ape_paterno", appaterno);
                 variableSQL.Parameters.Add("ape_materno", apmaterno);
@@ -816,6 +816,29 @@ namespace BackSafe.AccesoDatos
 
                 //return idPerfil;
 
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public void retornarInformesPorEmpresa(decimal idEmpresa)
+        {
+            comprobarConexion();
+
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                variableSQL.Parameters.Add("idEmpresa", idEmpresa);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                this.dbDataAdapter = new OracleDataAdapter(variableSQL);
+                this.DbDat = new System.Data.DataSet();
+                this.dbDataAdapter.Fill(DbDat, this.NombreTabla);
             }
             catch (OracleException ex)
             {

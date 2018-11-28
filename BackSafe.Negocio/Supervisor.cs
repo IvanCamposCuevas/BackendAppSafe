@@ -55,12 +55,12 @@ namespace BackSafe.Negocio
             }
         }
 
-        public DataSet retornarInformesEvaluaciones()
+        public DataSet retornarInformesEvaluaciones(decimal idEmpresa)
         {
             try
             {
                 Conexion.IntruccioneSQL = "fn_VerInformes";
-                Conexion.retornarDatosFunciones();
+                Conexion.retornarInformesPorEmpresa(idEmpresa);
                 return Conexion.DbDat;
             }
             catch (OracleException ex)
