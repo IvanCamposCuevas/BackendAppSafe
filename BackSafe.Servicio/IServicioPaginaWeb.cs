@@ -62,9 +62,7 @@ namespace BackSafe.Servicio
         [OperationContract]
         bool crearInformeIngeniero(string recomendacion, decimal usuarioId, decimal evalId);
         [OperationContract]
-        DataSet obtenerTipoExamen();
-        [OperationContract]
-        string consulta();
+        DataSet retornarInformes();
         // TODO: agregue aquí sus operaciones de servicio
     }
 
