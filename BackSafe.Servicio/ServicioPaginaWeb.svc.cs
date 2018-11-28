@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -11,9 +11,9 @@ using BackSafe.Entidad;
 
 namespace BackSafe.Servicio
 {
-    // NOTA: puede usar el comando "Rename" del menÃº "Refactorizar" para cambiar el nombre de clase "Service1" en el cÃ³digo, en svc y en el archivo de configuraciÃ³n.
-    // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuraciÃ³n.
-   
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
+    // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
+
     public class ServicioPaginaWeb : IServicioPaginaWeb
     {
         public string GetData(int value)
@@ -39,9 +39,9 @@ namespace BackSafe.Servicio
             return new VisitaMedica().crearVisitaMedica(fecVisita, idEmpresa, idMedico);
         }
 
-        public DataSet login(string rut, string contraseÃ±a)
+        public DataSet login(string rut, string contraseña)
         {
-            return new Usuarios().retornarLogin(rut, contraseÃ±a);
+            return new Usuarios().retornarLogin(rut, contraseña);
         }
 
         public DataSet obtenerContratos()
@@ -62,7 +62,7 @@ namespace BackSafe.Servicio
 
         public bool crearPlanCapacitacion(string descripcion, int idEmpresa, string fechaPlan)
         {
-           return new Supervisor().crearPlanCapacitacion(descripcion, idEmpresa, fechaPlan);
+            return new Supervisor().crearPlanCapacitacion(descripcion, idEmpresa, fechaPlan);
         }
 
         public bool crearCapacitacion(string descCapacitacion, decimal minParticipantes, string nomExpositor, string fecInicial, string fecFinal, int idPlanCapac)
@@ -105,9 +105,27 @@ namespace BackSafe.Servicio
             return new Ingeniero().crearInformeEvaluacion(recomendacion, usuarioId, evalId);
         }
 
+        public string consulta()
+        {
+            return new AccesoMedico().consulta();
+        }
+        public DataSet consultaTrabajadorPorRutNombre(string rn, string valorTipo)
+        {
+            return new AccesoMedico().consultaTrabajadorPorRutNombre(rn, valorTipo);
+        }
+        public DataSet obtenerTipoExamen()
+       
+        {
+            return new TipoExamen().obtenerTipoExamen();
+            
+        }
         public DataSet retornarInformes(decimal idEmpresa)
         {
             return new Supervisor().retornarInformesEvaluaciones(idEmpresa);
         }
+
+
+
+
     }
 }
