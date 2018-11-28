@@ -73,6 +73,7 @@
     <Compile Include="Examen.cs" />
     <Compile Include="Supervisor.cs" />
     <Compile Include="Tecnico.cs" />
+    <Compile Include="TipoExamen.cs" />
     <Compile Include="TiposEvaluacion.cs" />
     <Compile Include="VisitaMedica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

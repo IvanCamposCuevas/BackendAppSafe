@@ -104,5 +104,20 @@ namespace BackSafe.Servicio
         {
             return new Ingeniero().crearInformeEvaluacion(recomendacion, usuarioId, evalId);
         }
+
+        public string consulta()
+        {
+            return new AccesoMedico().consulta();
+        }
+
+        public DataSet consultaTrabajadorPorRutNombre(string rn, string valorTipo)
+        {
+            return new AccesoMedico().consultaTrabajadorPorRutNombre(rn,valorTipo);
+        }
+
+        public DataSet obtenerTipoExamen()
+        {
+            return new TipoExamen().obtenerTipoExamen();
+        }
     }
 }

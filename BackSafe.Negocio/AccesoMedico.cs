@@ -9,7 +9,7 @@ namespace BackSafe.Negocio
 {
     public class AccesoMedico : AccesoConexion
     {
-        private string consulta()
+        public string consulta()
         {
             string consulta = "SELECT u.rut_usuario AS Rut,"
                             + "u.nombre AS Nombre,"
