@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -11,8 +11,8 @@ using BackSafe.Entidad;
 
 namespace BackSafe.Servicio
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
-    // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
+    // NOTA: puede usar el comando "Rename" del menï¿½ "Refactorizar" para cambiar el nombre de clase "Service1" en el cï¿½digo, en svc y en el archivo de configuraciï¿½n.
+    // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuraciï¿½n.
 
     public class ServicioPaginaWeb : IServicioPaginaWeb
     {
@@ -39,9 +39,9 @@ namespace BackSafe.Servicio
             return new VisitaMedica().crearVisitaMedica(fecVisita, idEmpresa, idMedico);
         }
 
-        public DataSet login(string rut, string contraseña)
+        public DataSet login(string rut, string contraseÃ±a)
         {
-            return new Usuarios().retornarLogin(rut, contraseña);
+            return new Usuarios().retornarLogin(rut, contraseÃ±a);
         }
 
         public DataSet obtenerContratos()
