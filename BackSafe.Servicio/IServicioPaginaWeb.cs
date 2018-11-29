@@ -67,6 +67,13 @@ namespace BackSafe.Servicio
         DataSet obtenerTipoExamen();
         [OperationContract]
         string consulta();
+        [OperationContract]
+        bool crearAtencion(string desc_atencion, decimal id_ficha, decimal id_visita_medica);
+        [OperationContract]
+        bool crearExamen(string desc_examen, string f_examen, decimal id_tipo_examen, decimal id_atencion);
+
+
+
         // TODO: agregue aquí sus operaciones de servicio
     }
 

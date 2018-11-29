@@ -124,8 +124,15 @@ namespace BackSafe.Servicio
             return new Supervisor().retornarInformesEvaluaciones(idEmpresa);
         }
 
+        public bool crearAtencion(string desc_atencion, decimal id_ficha, decimal id_visita_medica)
+        {
+            return new Medico().crearAtencion(desc_atencion, id_ficha, id_visita_medica);
+        }
 
-
+        public bool crearExamen(string desc_examen, string f_examen, decimal id_tipo_examen, decimal id_atencion)
+        {
+            return new Medico().crearExamen(desc_examen, f_examen, id_tipo_examen, id_atencion);
+        }
 
     }
 }
