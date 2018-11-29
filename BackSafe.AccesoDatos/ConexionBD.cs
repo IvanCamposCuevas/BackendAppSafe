@@ -752,7 +752,7 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcCrearAtencion(string descAtencion, decimal idFicha, decimal idVisitaMedica)
+        public bool conectarProcCrearAtencion(string descAtencion, string rut, decimal idVisitaMedica, string fechaAtencion)
         {
             comprobarConexion();
 
@@ -761,7 +761,8 @@ namespace BackSafe.AccesoDatos
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("desc_atencion", descAtencion);
-                variableSQL.Parameters.Add("id_ficha", idFicha);
+                variableSQL.Parameters.Add("rut_trabajador", rut);
+                variableSQL.Parameters.Add("fechaAtencion",OracleDbType.Date ,fechaAtencion, ParameterDirection.Input);
                 variableSQL.Parameters.Add("id_visita_medica", idVisitaMedica);
 
                 variableSQL.ExecuteNonQuery();
@@ -877,6 +878,28 @@ namespace BackSafe.AccesoDatos
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
                 variableSQL.Parameters.Add("idEmpresa", idEmpresa);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                this.dbDataAdapter = new OracleDataAdapter(variableSQL);
+                this.DbDat = new System.Data.DataSet();
+                this.dbDataAdapter.Fill(DbDat, this.NombreTabla);
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public void retornarConsulta(string rut)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                variableSQL.Parameters.Add("Rut", rut);
                 variableSQL.ExecuteNonQuery();
                 cerrarConexion();
                 this.dbDataAdapter = new OracleDataAdapter(variableSQL);

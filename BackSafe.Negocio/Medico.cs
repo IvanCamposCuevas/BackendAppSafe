@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Oracle.DataAccess.Client;
+using System.Net.Mail;
+using System.Net;
 
 namespace BackSafe.Negocio
 {
@@ -41,25 +43,44 @@ namespace BackSafe.Negocio
             }
         }
 
-        public bool crearAtencion(string desc_atencion, decimal id_ficha, decimal id_visita_medica)
+        public bool crearAtencion(string desc_atencion, string rut, decimal id_visita_medica, string fechaAtencion)
         {
-            Conexion.abrirConexion();
             try
             {
-                Conexion.variableSQL = new OracleCommand("PR_CREARATENCION", Conexion.DbConnection);
-                Conexion.variableSQL.CommandType = CommandType.StoredProcedure;
-                Conexion.variableSQL.Parameters.Add("desc_atencion", desc_atencion);
-                Conexion.variableSQL.Parameters.Add("id_ficha", id_ficha);
-                Conexion.variableSQL.Parameters.Add("id_visita_medica", id_visita_medica);
-                Conexion.variableSQL.ExecuteNonQuery();
-                Conexion.cerrarConexion();
-                return true;
+                Conexion.IntruccioneSQL = "PR_CREARATENCION";
+                return Conexion.conectarProcCrearAtencion(desc_atencion, rut, id_visita_medica, fechaAtencion);
             }
             catch (OracleException ex)
             {
 
                 throw;
             }
+        }
+
+
+        public void EnviarMail(MailMessage mensaje)
+        {
+            try
+            {
+                SmtpClient client = new SmtpClient();
+                client.Host = "smtp.googlemail.com";
+                client.Port = 587;
+                client.UseDefaultCredentials = false;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.EnableSsl = true;
+                client.Credentials = new NetworkCredential("mar.faundez@alumnos.duoc.cl", "udechile*");
+                client.Send(mensaje);
+            }
+            catch (SmtpException ex)
+            {
+                throw new Exception("Error al enviar el mensaje", ex.InnerException);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: ", ex.InnerException);
+            }
+
         }
     }
 }

@@ -12,7 +12,7 @@ namespace BackSafe.Negocio
         
         public DataSet obtenerTipoExamen()
         {
-            Conexion.IntruccioneSQL = "fn_VerTipoExamen";
+            Conexion.IntruccioneSQL = "FN_VERTIPODEEXAMEN";
             Conexion.retornarDatosFunciones();
             return Conexion.DbDat;
         }

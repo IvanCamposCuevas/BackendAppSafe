@@ -66,9 +66,9 @@ namespace BackSafe.Servicio
         [OperationContract]
         DataSet obtenerTipoExamen();
         [OperationContract]
-        string consulta();
+        DataSet retornarConsulta(string rut);
         [OperationContract]
-        bool crearAtencion(string desc_atencion, decimal id_ficha, decimal id_visita_medica);
+        bool crearAtencion(string desc_atencion, string rut, decimal id_visita_medica, string fechaAtencion);
         [OperationContract]
         bool crearExamen(string desc_examen, string f_examen, decimal id_tipo_examen, decimal id_atencion);
         [OperationContract]
@@ -83,6 +83,8 @@ namespace BackSafe.Servicio
         DataSet retornarPlanCapacitaciones();
         [OperationContract]
         DataSet retornarVisitasMedicasPorEmpresa(decimal idEmprea);
+        
+
         // TODO: agregue aquí sus operaciones de servicio
     }
 
