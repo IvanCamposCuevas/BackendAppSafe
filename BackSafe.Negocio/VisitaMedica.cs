@@ -29,5 +29,12 @@ namespace BackSafe.Negocio
 
             return Conexion.DbDat;
         }
+
+        public DataSet retornarVisitaMedicaPorEmpresa(decimal idEmpresa)
+        {
+            Conexion.IntruccioneSQL = "FN_VERVISITASMEDICASPOREMPRESA";
+            Conexion.retornarDatosVisitaMedicaPorIdEmpresa(idEmpresa);
+            return Conexion.DbDat;
+        }
     }
 }

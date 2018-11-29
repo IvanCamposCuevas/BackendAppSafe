@@ -134,5 +134,34 @@ namespace BackSafe.Servicio
             return new Medico().crearExamen(desc_examen, f_examen, id_tipo_examen, id_atencion);
         }
 
+        public DataSet retornarEvaluacionesSupervisor(decimal idEmpresa)
+        {
+            return new Supervisor().retornarEvaluacionesSupervisor(idEmpresa);
+        }
+
+        public bool actualizarEstadoEvaluacion(decimal idEvaluacion, int estadoEval, string motivo)
+        {
+            return new Supervisor().actualizarEstadoEvaluacion(idEvaluacion, estadoEval, motivo);
+        }
+
+        public bool crearCurso(string descripcion, decimal idCapac)
+        {
+            return new Supervisor().crearCurso(descripcion, idCapac);
+        }
+
+        public DataSet retornarCapacitaciones()
+        {
+            return new Supervisor().obtenerCapacitciones();
+        }
+
+        public DataSet retornarPlanCapacitaciones()
+        {
+            return new Supervisor().obtenerPlanCapacitacion();
+        }
+
+        public DataSet retornarVisitasMedicasPorEmpresa(decimal idEmpresa)
+        {
+            return new VisitaMedica().retornarVisitaMedicaPorEmpresa(idEmpresa);
+        }
     }
 }

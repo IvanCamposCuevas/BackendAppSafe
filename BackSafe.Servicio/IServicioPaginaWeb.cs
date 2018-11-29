@@ -71,9 +71,18 @@ namespace BackSafe.Servicio
         bool crearAtencion(string desc_atencion, decimal id_ficha, decimal id_visita_medica);
         [OperationContract]
         bool crearExamen(string desc_examen, string f_examen, decimal id_tipo_examen, decimal id_atencion);
-
-
-
+        [OperationContract]
+        DataSet retornarEvaluacionesSupervisor(decimal idEmpresa);
+        [OperationContract]
+        bool actualizarEstadoEvaluacion(decimal idEvaluacion, int estadoEval, string motivo);
+        [OperationContract]
+        bool crearCurso(string descripcion, decimal idCapac);
+        [OperationContract]
+        DataSet retornarCapacitaciones();
+        [OperationContract]
+        DataSet retornarPlanCapacitaciones();
+        [OperationContract]
+        DataSet retornarVisitasMedicasPorEmpresa(decimal idEmprea);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

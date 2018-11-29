@@ -55,6 +55,21 @@ namespace BackSafe.Negocio
             }
         }
 
+        public DataSet retornarEvaluacionesSupervisor(decimal idEmpresa)
+        {
+            try
+            {
+                Conexion.IntruccioneSQL = "fn_verevaluacionessupervisor";
+                Conexion.retornarEvaluacionesSupervisor(idEmpresa);
+                return Conexion.DbDat;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
         public DataSet retornarInformesEvaluaciones(decimal idEmpresa)
         {
             try
@@ -64,6 +79,72 @@ namespace BackSafe.Negocio
                 return Conexion.DbDat;
             }
             catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool actualizarEstadoEvaluacion(decimal idEvaluacion, int estadoEval, string motivo)
+        {
+            Conexion.abrirConexion();
+            try
+            {
+                Conexion.variableSQL = new OracleCommand("pr_AprobarEvaluacion", Conexion.DbConnection);
+                Conexion.variableSQL.CommandType = CommandType.StoredProcedure;
+                Conexion.variableSQL.Parameters.Add("idEval", idEvaluacion);
+                Conexion.variableSQL.Parameters.Add("estadoEval", estadoEval);
+                Conexion.variableSQL.Parameters.Add("motivo", motivo);
+                Conexion.variableSQL.ExecuteNonQuery();
+                Conexion.cerrarConexion();
+                return true;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool crearCurso(string descripcion, decimal capacitacionId)
+        {
+            try
+            {
+                Conexion.IntruccioneSQL = "PR_CREARCURSO";
+                return Conexion.conectarProcCrearCurso(descripcion, capacitacionId);
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+
+        }
+
+        public DataSet obtenerCapacitciones()
+        {
+            try
+            {
+                Conexion.IntruccioneSQL = "fn_VerCapac";
+                Conexion.retornarDatosFunciones();
+                return Conexion.DbDat;
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public DataSet obtenerPlanCapacitacion()
+        {
+            try
+            {
+                Conexion.IntruccioneSQL = "fn_VerPlanCapac";
+                Conexion.retornarDatosFunciones();
+                return Conexion.DbDat;
+            }
+            catch (OracleException)
             {
 
                 throw;

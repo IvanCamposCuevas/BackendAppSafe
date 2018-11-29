@@ -263,6 +263,27 @@ namespace BackSafe.AccesoDatos
             }
         }
 
+        public void retornarDatosVisitaMedicaPorIdEmpresa(decimal idEmpresa)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                variableSQL.Parameters.Add("id_empresa", idEmpresa);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                this.dbDataAdapter = new OracleDataAdapter(variableSQL);
+                this.DbDat = new System.Data.DataSet();
+                this.dbDataAdapter.Fill(DbDat, this.NombreTabla);
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
 
         public bool conectarProcCrearUsuario(string rut, string contraseña, string nombre, string appaterno, string apmaterno, 
                                             string direccion, decimal telefono, string email, decimal idPerfil, decimal idEmpresa)
@@ -816,6 +837,28 @@ namespace BackSafe.AccesoDatos
 
                 //return idPerfil;
 
+            }
+            catch (OracleException ex)
+            {
+
+                throw;
+            }
+        }
+
+        public void retornarEvaluacionesSupervisor(decimal idEmpresa)
+        {
+            comprobarConexion();
+            try
+            {
+                variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
+                variableSQL.CommandType = CommandType.StoredProcedure;
+                variableSQL.Parameters.Add("c_resultadoconsulta", OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+                variableSQL.Parameters.Add("empresaId", idEmpresa);
+                variableSQL.ExecuteNonQuery();
+                cerrarConexion();
+                this.dbDataAdapter = new OracleDataAdapter(variableSQL);
+                this.DbDat = new System.Data.DataSet();
+                this.dbDataAdapter.Fill(DbDat, this.NombreTabla);
             }
             catch (OracleException ex)
             {
