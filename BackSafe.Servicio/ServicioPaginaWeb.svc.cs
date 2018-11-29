@@ -105,14 +105,7 @@ namespace BackSafe.Servicio
             return new Ingeniero().crearInformeEvaluacion(recomendacion, usuarioId, evalId);
         }
 
-        public string consulta()
-        {
-            return new AccesoMedico().consulta();
-        }
-        public DataSet consultaTrabajadorPorRutNombre(string rn, string valorTipo)
-        {
-            return new AccesoMedico().consultaTrabajadorPorRutNombre(rn, valorTipo);
-        }
+               
         public DataSet obtenerTipoExamen()
        
         {
@@ -124,9 +117,9 @@ namespace BackSafe.Servicio
             return new Supervisor().retornarInformesEvaluaciones(idEmpresa);
         }
 
-        public bool crearAtencion(string desc_atencion, decimal id_ficha, decimal id_visita_medica)
+        public bool crearAtencion(string desc_atencion, string rut, decimal id_visita_medica, string fechaAtencion)
         {
-            return new Medico().crearAtencion(desc_atencion, id_ficha, id_visita_medica);
+            return new Medico().crearAtencion(desc_atencion, rut, id_visita_medica, fechaAtencion);
         }
 
         public bool crearExamen(string desc_examen, string f_examen, decimal id_tipo_examen, decimal id_atencion)
@@ -162,6 +155,11 @@ namespace BackSafe.Servicio
         public DataSet retornarVisitasMedicasPorEmpresa(decimal idEmpresa)
         {
             return new VisitaMedica().retornarVisitaMedicaPorEmpresa(idEmpresa);
+        }
+
+        public DataSet retornarConsulta(string rut)
+        {
+            return new AccesoMedico().retornarConsulta(rut);
         }
     }
 }
