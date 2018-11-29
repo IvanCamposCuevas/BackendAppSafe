@@ -21,7 +21,7 @@ namespace BackSafe.Negocio
         public bool crearExamen(string desc_examen, string f_examen, decimal id_tipo_examen, decimal id_atencion)
         {
 
-            Conexion.abrirConexion();
+            Conexion.comprobarConexion();
             try
             {
                 Conexion.variableSQL = new OracleCommand("PR_CREAREXAMEN", Conexion.DbConnection);
@@ -43,7 +43,7 @@ namespace BackSafe.Negocio
 
         public bool crearAtencion(string desc_atencion, decimal id_ficha, decimal id_visita_medica)
         {
-            Conexion.abrirConexion();
+            Conexion.comprobarConexion();
             try
             {
                 Conexion.variableSQL = new OracleCommand("PR_CREARATENCION", Conexion.DbConnection);
