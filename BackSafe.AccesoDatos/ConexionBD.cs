@@ -72,7 +72,7 @@ namespace BackSafe.AccesoDatos
 
         public OracleCommand variableSQL { get; set; }
 
-        public void abrirConexion()
+        private void abrirConexion()
         {
             try
             {
@@ -509,7 +509,7 @@ namespace BackSafe.AccesoDatos
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("fec_visita", OracleDbType.Date, fecVisita, ParameterDirection.Input);
-                variableSQL.Parameters.Add("id_contrato", idEmpresa);
+                variableSQL.Parameters.Add("id_empresa", idEmpresa);
                 variableSQL.Parameters.Add("id_medico", idMedico);
 
                 variableSQL.ExecuteNonQuery();

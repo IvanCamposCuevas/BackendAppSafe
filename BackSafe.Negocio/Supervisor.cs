@@ -12,7 +12,7 @@ namespace BackSafe.Negocio
     {
         public bool crearPlanCapacitacion(string descPlan, int idEmpresa, string fechaPlan)
         {
-            Conexion.abrirConexion();
+            Conexion.comprobarConexion();
             try
             {
                 Conexion.variableSQL = new OracleCommand("PR_CREARPLAN", Conexion.DbConnection);
@@ -33,7 +33,7 @@ namespace BackSafe.Negocio
 
         public bool crearCapacitacion(string descCapacitacion, decimal minParticipantes, string nomExpositor, string fecInicial, string fecFinal, int idPlanCapac)
         {
-            Conexion.abrirConexion();
+            Conexion.comprobarConexion();
             try
             {
                 Conexion.variableSQL = new OracleCommand("PR_CREARCAPACITACION", Conexion.DbConnection);
@@ -87,7 +87,7 @@ namespace BackSafe.Negocio
 
         public bool actualizarEstadoEvaluacion(decimal idEvaluacion, int estadoEval, string motivo)
         {
-            Conexion.abrirConexion();
+            Conexion.comprobarConexion();
             try
             {
                 Conexion.variableSQL = new OracleCommand("pr_AprobarEvaluacion", Conexion.DbConnection);
