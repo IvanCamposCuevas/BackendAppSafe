@@ -22,25 +22,17 @@ namespace BackSafe.Negocio
 
         public bool crearExamen(string desc_examen, string f_examen, decimal id_tipo_examen, decimal id_atencion)
         {
-
-            Conexion.abrirConexion();
             try
             {
-                Conexion.variableSQL = new OracleCommand("PR_CREAREXAMEN", Conexion.DbConnection);
-                Conexion.variableSQL.CommandType = CommandType.StoredProcedure;
-                Conexion.variableSQL.Parameters.Add("desc_examen", desc_examen);
-                Conexion.variableSQL.Parameters.Add("f_examen", OracleDbType.Date, f_examen, ParameterDirection.Input);
-                Conexion.variableSQL.Parameters.Add("id_tipo_examen", id_tipo_examen);
-                Conexion.variableSQL.Parameters.Add("id_atencion", id_atencion);
-                Conexion.variableSQL.ExecuteNonQuery();
-                Conexion.cerrarConexion();
-                return true;
+                Conexion.IntruccioneSQL = "PR_CREAREXAMEN";
+                return Conexion.conectarProcCrearExamen(desc_examen, f_examen, id_tipo_examen, id_atencion);
             }
             catch (OracleException ex)
             {
 
                 throw;
             }
+
         }
 
         public bool crearAtencion(string desc_atencion, string rut, decimal id_visita_medica, string fechaAtencion)

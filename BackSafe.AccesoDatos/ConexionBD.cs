@@ -661,7 +661,7 @@ namespace BackSafe.AccesoDatos
             }
         }
 
-        public bool conectarProcCrearExamen(string descExamen, DateTime fecExamen, decimal idTipoExamen, decimal idAtencion)
+        public bool conectarProcCrearExamen(string descExamen, string fecExamen, decimal idTipoExamen, decimal idAtencion)
         {
             comprobarConexion();
             try
@@ -669,7 +669,7 @@ namespace BackSafe.AccesoDatos
                 variableSQL = new OracleCommand(this.intruccioneSQL, this.dbConnection);
                 variableSQL.CommandType = CommandType.StoredProcedure;
                 variableSQL.Parameters.Add("desc_examen", descExamen);
-                variableSQL.Parameters.Add("f_examen", fecExamen);
+                variableSQL.Parameters.Add("f_examen", OracleDbType.Date, fecExamen, ParameterDirection.Input);
                 variableSQL.Parameters.Add("id_tipo_examen", idTipoExamen);
                 variableSQL.Parameters.Add("id_atencion", idAtencion);
 
